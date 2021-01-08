@@ -7,14 +7,14 @@ from djchoices import ChoiceItem, DjangoChoices
 
 
 class Role(models.Model):
-
+    """Role"""
     role_id             = models.IntegerField(primary_key=True)
     pasazer             = models.BooleanField(default=False)
     kierowca            = models.BooleanField(default=False)
 
 
 class Ocenianie(models.Model):
-
+    """Ocenianie"""
     ocena_id            = models.IntegerField(primary_key=True)
     PUNKTOWANIE = (
         ('1', 'Bardzo Zle'),
@@ -27,7 +27,7 @@ class Ocenianie(models.Model):
 
 
 class Adres(models.Model):
-
+    """Adres"""
     adres_id            = models.IntegerField()
     wojewodztwo         = models.CharField(max_length=50)
     miejscowosc         = models.CharField(max_length=50)
@@ -36,7 +36,7 @@ class Adres(models.Model):
 
 
 class Trasa(models.Model):
-
+    """Trasa"""
     trasa_id            = models.IntegerField(primary_key=True)
     adres_poczatkowy    = models.ForeignKey(Adres, related_name="adres_pocz", on_delete=models.CASCADE)
     adres_koncowy       = models.ForeignKey(Adres, related_name="adres_kon", on_delete=models.CASCADE)
@@ -46,7 +46,7 @@ class Trasa(models.Model):
 
 
 class Uzytkownik(models.Model):
-
+    """Uzytkownik"""
     uzytkownik_id       = models.IntegerField(primary_key=True)
     uzytkownik_imie     = models.CharField(max_length=50)
     uzytkownik_nazwisko = models.CharField(max_length=50)
