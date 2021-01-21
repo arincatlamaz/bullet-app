@@ -1,0 +1,114 @@
+{% extends 'MainApp/layout.html' %} {% block title %} {% endblock %} {% block content %}
+<header id="header">
+    <a class="logo-animation-scale" href="#"><img alt="" src="../static/MainApp/img/pula.png"></a>
+    <div id="bars-btn"><i class="fas fa-bars"></i></div>
+    <nav class="animation-scale" id="menu">
+        <ul class="nav-list">
+            <li>
+                <a onclick="document.location='registration'">Co to jest?</a>
+            </li>
+            <li>
+                <a onclick="document.location='registration'">Obecne przejazdy</a>
+            </li>
+            <li>
+                <a onclick="document.location='registration'">Oferty</a>
+            </li>
+            <li>
+                <a onclick="document.location='registration'">Dodaj ofertę</a>
+            </li>
+            <li>
+                <a onclick="document.location='registration'">Moje konto</a>
+            </li>
+
+        </ul>
+    </nav>
+</header>
+<section class="main-banner">
+
+    <div class="main-slogan">
+        <h1>
+            <span>Aplikacja "Bullet" do podróży miejskich</span>
+
+        </h1>
+        <div class="main-slogan-subtitle">Co to jest?</div>
+    </div>
+    <div class="co-to-jest">
+        <ul class="nav-list">
+            <li>
+                <a href="#kto">Dla kogo</a>
+            </li>
+            <li>
+                <a href="#zalety">Zalety Aplikacji</a>
+            </li>
+            <li>
+                <a href="#jak">Jak dziala Aplikacja</a>
+            </li>
+        </ul>
+    </div>
+</section>
+<section class="kto" id="kto">
+    <div class="container-kto">
+        <div class="row">
+            <div class="col">
+                <div class="position-img">
+                    <img src="../static/MainApp/img/sad.jpg" alt="sad">
+                </div>
+            </div>
+            <div class="col ">
+                <h2>Jeżeli</h2>
+                <h2 style="color: #e79f4d;">przynajmniej jedno</h2>
+                <h2 style="margin: 0 0 27px 0;">zdanie dotyczy Ciebie - ta Aplikacja bardzo Ci pomoże</h2>
+                <p>- Codziennie stoisz w zatłoczonym tramwaju lub autobusie.</p>
+                <p>- Wydajesz dużo pieniędzy na paliwo.</p>
+                <p>- Dni mijają w ten sam sposób, nie poznałeś nowych znajomych.</p>
+                <p>- Nie masz pieniędzy na taksówkę.</p>
+                <p>- Spędzasz dużo czasu na dojazdach do i z pracy środkami transportu publicznego.</p>
+                <button class="btn-look"> Lets talk </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="zalety" id="zalety">
+    <div class="container-zalety">
+        <div class="row">
+            <div class="col ">
+                <h2 style="margin: 0 0 27px 0;">Co zyskujesz korzystając z naszej aplikacji?</h2>
+                <div class="row-zaleta">
+                    <div class="col-zaleta">
+                        <div class="why-icon"><i class="icon-flag"></i></div>
+                        <span class="choose-title">
+                            Pieniądze</span>
+                        <p> Pasażer zyskuje komfort w korzystnej cenie.</p>
+                        <p>Kierowca oszczędza na paliwie.</p>
+                    </div>
+
+                    <div class="col-zaleta">
+                        <div class="why-icon"><i class="icon-clock"></i></div>
+                        <span class="choose-title">Wygoda</span>
+                        <p> Kierowca i pasażer zdobywają nowe znajomości.</p>
+                        <p>Kierowca i pasażer mogą wybrać, z kim jechać.</p>
+                    </div>
+                    <div class="col-zaleta">
+                        <div class="why-icon"><i class="icon-hotairballoon"></i></div>
+                        <span class="choose-title">Czas</span>
+                        <p> Pasażer spędza mniej czasu na dojazdach do i z pracy.</p>
+                        <p>Kierowca spędza czas z zyskiem.</p>
+                    </div>
+                    <div class="col-zaleta">
+                        <div class="why-icon"><i class="icon-heart"></i></div>
+                        <span class="choose-title">Komunikacja</span>
+                        <p>Kierowca i pasażer uzgadniają cenę.</p>
+                        <p>Dla kierowcy i pasażera dostępny czat w aplikacji.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="position-img">
+                    <img src="../static/MainApp/img/happy.jpg" alt="sad">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
