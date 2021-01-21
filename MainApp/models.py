@@ -1,20 +1,25 @@
-from django.contrib.auth.forms import UsernameField
 from django.db import models
-from django.contrib.auth.models import User
 from django.dispatch import receiver
 from djchoices import ChoiceItem, DjangoChoices
+from django.urls import reverse
+
+
 # Create your models here.
 
 
 class Role(models.Model):
+
     """Role"""
+
     role_id             = models.IntegerField(primary_key=True)
     pasazer             = models.BooleanField(default=False)
     kierowca            = models.BooleanField(default=False)
 
 
 class Ocenianie(models.Model):
+
     """Ocenianie"""
+
     ocena_id            = models.IntegerField(primary_key=True)
     PUNKTOWANIE = (
         ('1', 'Bardzo Zle'),
@@ -27,8 +32,10 @@ class Ocenianie(models.Model):
 
 
 class Adres(models.Model):
+
     """Adres"""
-    adres_id            = models.IntegerField()
+
+    adres_id            = models.IntegerField(primary_key=True)
     wojewodztwo         = models.CharField(max_length=50)
     miejscowosc         = models.CharField(max_length=50)
     ulica               = models.CharField(max_length=50)
@@ -36,7 +43,9 @@ class Adres(models.Model):
 
 
 class Trasa(models.Model):
+
     """Trasa"""
+
     trasa_id            = models.IntegerField(primary_key=True)
     adres_poczatkowy    = models.ForeignKey(Adres, related_name="adres_pocz", on_delete=models.CASCADE)
     adres_koncowy       = models.ForeignKey(Adres, related_name="adres_kon", on_delete=models.CASCADE)
@@ -46,34 +55,42 @@ class Trasa(models.Model):
 
 
 class Uzytkownik(models.Model):
+
     """Uzytkownik"""
+
+
     uzytkownik_id       = models.IntegerField(primary_key=True)
     uzytkownik_imie     = models.CharField(max_length=50)
     uzytkownik_nazwisko = models.CharField(max_length=50)
     uzytkownik_telefon  = models.IntegerField()
     uzytkownik_mail     = models.EmailField(max_length=100)
-    role_id             = models.ForeignKey(Role, name="role", on_delete=models.CASCADE)
+    role_id             = models.ForeignKey(Role, name="role_id", on_delete=models.CASCADE)
     trasa_id            = models.ForeignKey(Trasa, name="trasa_id", on_delete=models.CASCADE)
     ocena_id            = models.ForeignKey(Ocenianie, name="ocena_id", on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.uzytkownik_imie
 
 
 
+class Oferty(models.Model):
+
+    """Oferty"""
+
+    uzytkownik_id       = models.ForeignKey(Uzytkownik, on_delete=models.SET_NULL, null=True, blank=True, default = None)
+    data                = models.DateField()
+    czas_odjazdu        = models.TimeField()
+    czas_dojazdu        = models.TimeField()
+    ilosc_miejsc        = models.IntegerField()
+    cena                = models.IntegerField()
+    komentarz           = models.CharField(max_length=100)
+    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    RODZAJE     = (
+        ('1', 'Pasazer'),
+        ('2', 'Kierowca'),
+    )
+    
+    rodzaj_ofert        = models.CharField(max_length=50, choices=RODZAJE)
 
