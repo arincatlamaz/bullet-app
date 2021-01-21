@@ -9,3 +9,4 @@ python_env/
 MainApp/migrations/__pycache__/0003_auto_20210104_1700.cpython-39.pyc/
 bullet/__pycache__/
 MainApp/__pycache__/
+MainApp/migrations/__pycache__/

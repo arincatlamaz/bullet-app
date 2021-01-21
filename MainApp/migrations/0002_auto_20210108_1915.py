@@ -60,7 +60,4 @@ class Migration(migrations.Migration):
                 ('trasa_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='MainApp.trasa')),
             ],
         ),
-        migrations.DeleteModel(
-            name='Teacher',
-        ),
     ]

@@ -1,16 +1,14 @@
-from django.shortcuts import redirect, render
-from .forms import  UserRegistrationForm
+from django.shortcuts import redirect, render, HttpResponse, get_object_or_404
+from .models import Oferty, Uzytkownik
+from .forms import OfertyForm, UserRegistrationForm
+from django.contrib.auth import authenticate
+
+
 
 def index(request):
-    
 
-    return render(
-        request,
-        "MainApp/index.html",  
-        {
-            'title' : "Main Page",            
-        }
-    )
+    return render(request, "MainApp/index.html",  
+    {'title' : "Main Page",})
 
 def about(request):
 
@@ -24,15 +22,50 @@ def about(request):
         }
     )
 
-def formularz(request):
+def dodawanie_oferty(request):
 
-    return render(
-        request,
-        "MainApp/formularz.html",
-        {
-            'title' : "Formularz dodawania ofert",
-        }
-    )
+    users = Uzytkownik.objects.all()
+    print(users)
+
+    if request.method == "POST":
+
+        form = OfertyForm(request.POST)
+        if form.is_valid():
+            
+            cd = form.cleaned_data
+
+            oferty = Oferty()
+
+            oferty.czas_dojazdu = cd.get('czas_dojazdu')
+
+            oferty.czas_odjazdu = cd.get('czas_odjazdu')
+
+            oferty.data = cd.get('data')
+
+            oferty.ilosc_miejsc = cd.get('ilosc_miejsc')
+
+            oferty.komentarz = cd.get('komentarz')
+
+            oferty.cena = cd.get('cena')
+            
+            oferty.rodzaj_ofert = cd.get('rodzaj_ofert')
+
+            
+            oferty.save()
+            print(oferty)
+
+            return redirect('form')
+
+
+    else:
+        form = OfertyForm()
+
+
+    return render(request, 'MainApp/form.html', {'form':form,})
+
+
+
+
 
 def login(request):
     return render(request, 'MainApp/login.html')
