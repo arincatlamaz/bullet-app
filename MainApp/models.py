@@ -2,7 +2,7 @@ from django.db import models
 from django.dispatch import receiver
 from djchoices import ChoiceItem, DjangoChoices
 from django.urls import reverse
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -58,26 +58,24 @@ class Uzytkownik(models.Model):
 
     """Uzytkownik"""
 
-
-    uzytkownik_id       = models.IntegerField(primary_key=True)
     uzytkownik_imie     = models.CharField(max_length=50)
     uzytkownik_nazwisko = models.CharField(max_length=50)
     uzytkownik_telefon  = models.IntegerField()
     uzytkownik_mail     = models.EmailField(max_length=100)
-    role_id             = models.ForeignKey(Role, name="role_id", on_delete=models.CASCADE)
-    trasa_id            = models.ForeignKey(Trasa, name="trasa_id", on_delete=models.CASCADE)
-    ocena_id            = models.ForeignKey(Ocenianie, name="ocena_id", on_delete=models.CASCADE)
+    role            = models.ForeignKey(Role, name="role_id", on_delete=models.CASCADE)
+    trasa           = models.ForeignKey(Trasa, name="trasa_id", on_delete=models.CASCADE)
+    ocena           = models.ForeignKey(Ocenianie, name="ocena_id", on_delete=models.CASCADE)
+    uzytkownik = models.OneToOneField(User,default=None, on_delete = models.CASCADE)
+
 
     def __str__(self):
         return self.uzytkownik_imie
 
 
-
 class Oferty(models.Model):
 
     """Oferty"""
-
-    uzytkownik_id       = models.ForeignKey(Uzytkownik, on_delete=models.SET_NULL, null=True, blank=True, default = None)
+    uzytkownik       = models.ForeignKey(Uzytkownik, on_delete=models.SET_NULL, null=True, blank=True, default = None)
     data                = models.DateField()
     czas_odjazdu        = models.TimeField()
     czas_dojazdu        = models.TimeField()

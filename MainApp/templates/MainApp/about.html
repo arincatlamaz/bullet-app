@@ -1,92 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>About</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
+ {% extends 'MainApp/layout.html' %} {% block title %} {% endblock %} {% block content %}
+<header id="header">
+    <a class="logo-animation-scale" href="#"><img alt="" src="../static/MainApp/img/pula.png"></a>
+    <div id="bars-btn"><i class="fas fa-bars"></i></div>
+    <nav class="animation-scale" id="menu">
+        <ul class="nav-list">
+            <li>
+                <a onclick="document.location='registration'">Co to jest?</a>
+            </li>
+            <li>
+                <a onclick="document.location='registration'">Obecne przejazdy</a>
+            </li>
+            <li>
+                <a onclick="document.location='registration'">Oferty</a>
+            </li>
+            <li>
+                <a onclick="document.location='registration'">Dodaj ofertę</a>
+            </li>
+            <li>
+                <a onclick="document.location='registration'">Moje konto</a>
+            </li>
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Style the header */
-header {
-  background-color: #666;
-  padding: 30px;
-  text-align: center;
-  font-size: 35px;
-  color: white;
-}
-
-/* Create two columns/boxes that floats next to each other */
-nav {
-  float: left;
-  width: 30%;
-  height: 300px; /* only for demonstration, should be removed */
-  background: #ccc;
-  padding: 20px;
-}
-
-/* Style the list inside the menu */
-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-article {
-  float: left;
-  padding: 20px;
-  width: 70%;
-  background-color: #f1f1f1;
-  height: 300px; /* only for demonstration, should be removed */
-}
-
-/* Clear floats after the columns */
-section::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Style the footer */
-footer {
-  background-color: #777;
-  padding: 10px;
-  text-align: center;
-  color: white;
-}
-
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-@media (max-width: 600px) {
-  nav, article {
-    width: 100%;
-    height: auto;
-  }
-}
-</style>
-</head>
-<body>
-<header>
-  <h2>About</h2>
+        </ul>
+    </nav>
 </header>
+<section class="main-banner">
 
-<section>
-  <article>
-    <h1>Lorem ipsum</h1>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-  </article>
+    <div class="main-slogan">
+        <h1>
+            <span>Aplikacja "Bullet" do podróży miejskich</span>
+
+        </h1>
+        <div class="main-slogan-subtitle">Co to jest?</div>
+    </div>
+    <div class="co-to-jest">
+        <ul class="nav-list">
+            <li>
+                <a href="#kto">Dla kogo</a>
+            </li>
+            <li>
+                <a href="#zalety">Zalety Aplikacji</a>
+            </li>
+            <li>
+                <a href="#jak">Jak dziala Aplikacja</a>
+            </li>
+        </ul>
+    </div>
 </section>
+<section class="kto" id="kto">
+    <div class="container-kto">
+        <div class="row">
+            <div class="col">
+                <div class="position-img">
+                    <img src="../static/MainApp/img/sad.jpg" alt="sad">
+                </div>
+            </div>
+            <div class="col ">
+                <h2>Jeżeli</h2>
+                <h2 style="color: #e79f4d;">przynajmniej jedno</h2>
+                <h2 style="margin: 0 0 27px 0;">zdanie dotyczy Ciebie - ta Aplikacja bardzo Ci pomoże</h2>
+                <p>- Codziennie stoisz w zatłoczonym tramwaju lub autobusie.</p>
+                <p>- Wydajesz dużo pieniędzy na paliwo.</p>
+                <p>- Dni mijają w ten sam sposób, nie poznałeś nowych znajomych.</p>
+                <p>- Nie masz pieniędzy na taksówkę.</p>
+                <p>- Spędzasz dużo czasu na dojazdach do i z pracy środkami transportu publicznego.</p>
+                <button class="btn-look"> Lets talk </button>
+            </div>
 
-<footer>
-  <p>Footer</p>
-</footer>
+        </div>
+    </div>
+</section>
+<section class="zalety" id="zalety">
+    <div class="container-zalety">
+        <div class="row">
+            <div class="col ">
+                <h2 style="margin: 0 0 27px 0;">Co zyskujesz korzystając z naszej aplikacji?</h2>
+                <div class="row-zaleta">
+                    <div class="col-zaleta">
+                        <div class="why-icon"><i class="icon-flag"></i></div>
+                        <span class="choose-title">
+                            Pieniądze</span>
+                        <p> Pasażer zyskuje komfort w korzystnej cenie.</p>
+                        <p>Kierowca oszczędza na paliwie.</p>
+                    </div>
 
-</body>
-</html>
-
-
-
+                    <div class="col-zaleta">
+                        <div class="why-icon"><i class="icon-clock"></i></div>
+                        <span class="choose-title">Wygoda</span>
+                        <p> Kierowca i pasażer zdobywają nowe znajomości.</p>
+                        <p>Kierowca i pasażer mogą wybrać, z kim jechać.</p>
+                    </div>
+                    <div class="col-zaleta">
+                        <div class="why-icon"><i class="icon-hotairballoon"></i></div>
+                        <span class="choose-title">Czas</span>
+                        <p> Pasażer spędza mniej czasu na dojazdach do i z pracy.</p>
+                        <p>Kierowca spędza czas z zyskiem.</p>
+                    </div>
+                    <div class="col-zaleta">
+                        <div class="why-icon"><i class="icon-heart"></i></div>
+                        <span class="choose-title">Komunikacja</span>
+                        <p>Kierowca i pasażer uzgadniają cenę.</p>
+                        <p>Dla kierowcy i pasażera dostępny czat w aplikacji.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="position-img">
+                    <img src="../static/MainApp/img/happy.jpg" alt="sad">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

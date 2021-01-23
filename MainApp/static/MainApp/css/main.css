@@ -1,0 +1,432 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'dosisregular';
+    text-align: center;
+    font-size: 25px;
+    color: #28292b;
+}
+
+p,
+b {
+    color: #28292b;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+/**/
+
+#header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    z-index: 9;
+    background-color: #e79f4d;
+    height: 20px;
+    ;
+}
+
+.logo-animation-scale {
+    width: 400px;
+}
+
+.logo-animation-scale img {
+    max-width: 40%;
+}
+
+.logo {
+    display: block;
+    width: 120px;
+    padding: 0 10px 0 0;
+}
+
+.nav-list {
+    display: flex;
+}
+
+.nav-list li {
+    margin: 0 34px 0 0;
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav-list li a {
+    color: #fff;
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+
+.nav-list li a:hover {
+    opacity: 1;
+}
+
+.nav-list li:last-child {
+    margin: 0;
+}
+
+#header.fixed-header {
+    position: fixed;
+    z-index: 5;
+    background-color: #000;
+}
+
+#bars-btn {
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-show #menu {
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 70px;
+    transform: translateX(-50%);
+    display: block;
+    background: #000;
+    width: 90%;
+    padding: 20px;
+    z-index: 5;
+}
+
+.nav-show .nav-list {
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-show .nav-list li {
+    margin: 0 0 10px;
+}
+
+
+/*page  login and registration start */
+
+.container-login {
+    position: relative;
+    height: 100vh;
+    background-color: #28292b;
+}
+
+.information {
+    position: absolute;
+    padding: 16px;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    box-shadow: 1px 2px 4px 1px rgba(146, 121, 17);
+    background-color: #ffe473;
+}
+
+.information h1 {
+    margin-top: 0px;
+    margin-bottom: 12px;
+}
+
+.information p {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+input[type=email],
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 13px 21px;
+    margin: 8px 0 12px 0;
+    display: inline-block;
+    border: 1px solid #28292b;
+    box-sizing: border-box;
+    background: #28292b4d;
+    border-radius: 6px;
+}
+
+input[type=password]::-webkit-input-placeholder {
+    color: #2b2b2a;
+}
+
+input[type=text]::-webkit-input-placeholder {
+    color: #2b2b2a;
+}
+
+input:focus {
+    outline: none;
+}
+
+input:hover {
+    opacity: 0.7;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    float: right;
+    background-color: #f44336;
+    border-radius: 2px;
+}
+
+.submit {
+    background-color: #28292b;
+    color: white;
+    padding: 14px 20px;
+    margin: 0 0 12px 0;
+    width: 100%;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+@media screen and (max-width: 415px) {
+    h1 {
+        font-size: 20px;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+    .information {
+        max-width: 300px;
+        width: 100%;
+    }
+}
+
+
+/*page login end */
+
+input[type=email]::-webkit-input-placeholder {
+    color: #2b2b2a;
+}
+
+
+/*page registration end */
+
+
+/* page about start */
+
+
+/* container main-banner start*/
+
+.main-banner {
+    position: relative;
+    background: url(../img/main.jpg);
+    height: 100vh;
+    background-position: 50% 50%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-banner h1 {
+    font-size: 43px;
+    color: #e79f4d;
+    letter-spacing: 9px;
+    margin: 0 0 60px;
+}
+
+.main-slogan {
+    max-width: 845px;
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
+    background: rgba(39, 47, 51, 0.7);
+}
+
+.main-slogan-subtitle {
+    font-size: 37px;
+    color: #ffff;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.co-to-jest {
+    position: absolute;
+    top: 78%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 865px;
+    background: rgba(231, 159, 77, 0.6);
+}
+
+.nav-list {
+    display: flex;
+}
+
+.nav-list li {
+    margin: 0 34px 0 0;
+    font-size: 21px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav-list li a {
+    color: black;
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+
+.nav-list li a:hover {
+    opacity: 1;
+}
+
+@media screen and (max-width: 414px) {
+    .main-banner h1 {
+        font-size: 20px;
+    }
+    .main-slogan-subtitle {
+        font-size: 15px;
+    }
+}
+
+
+/* container main-banner end*/
+
+
+/* container kto start*/
+
+.kto {
+    background-color: #28292b;
+}
+
+.container-kto {
+    margin: 0 auto;
+    max-width: 1050px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.container-kto .row {
+    display: flex;
+    margin: 0 -30px;
+    padding: 20px 0;
+    align-items: center;
+}
+
+.container-kto .col {
+    width: 50%;
+    padding: 0 15px;
+}
+
+.container-kto h2 {
+    font-family: 'dosislight';
+    letter-spacing: 4px;
+    color: #fff;
+    font-size: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
+.container-kto p {
+    font-family: 'open_sanslight';
+    margin: 0 0 10px;
+    color: #f4f4f4;
+}
+
+.btn-look {
+    width: 169px;
+    height: 41px;
+    background-color: #cfcfcf;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #111;
+    font-family: 'open_sansregular';
+    letter-spacing: 2px;
+    border-radius: 1px;
+}
+
+
+/* container kto end*/
+
+
+/* container zalety start*/
+
+.zalety {
+    background-color: #e79f4d;
+}
+
+.container-zalety {
+    margin: 0 auto;
+    max-width: 1050px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.container-zalety .row {
+    display: flex;
+    margin: 0 -30px;
+    padding: 20px 0;
+    align-items: center;
+}
+
+.container-zalety .col {
+    width: 50%;
+    padding: 0 15px;
+}
+
+.col .row-zaleta {
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.col .col-zaleta {
+    box-shadow: 2px 2px 2px rgba(40, 41, 43);
+    width: 50%;
+    margin: 0 0px 60px;
+    text-align: center;
+}
+
+.container-zalety h2 {
+    margin-bottom: 20px;
+    font-family: 'dosislight';
+    letter-spacing: 4px;
+    color: #28292b;
+    font-size: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
+.container-zalety p {
+    font-family: 'open_sanslight';
+    margin: 0 0 10px;
+    color: #28292b;
+    font-size: 22px;
+}
+
+.container-zalety .position-img {
+    padding-right: 0px;
+}
+
+.col-zaleta span {
+    font-family: 'open_sansregular';
+    font-size: 27px;
+}
+
+
+/* container zalety end*/
+
+
+/* page about end */
