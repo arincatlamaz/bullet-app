@@ -85,6 +85,7 @@ class Oferty(models.Model):
     cena                = models.IntegerField()
     komentarz           = models.CharField(max_length=100)
     
+    
 
 
     RODZAJE     = (

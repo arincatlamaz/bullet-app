@@ -28,9 +28,11 @@ def dodawanie_oferty(request):
 
     if request.method == "POST":
 
+
         form = OfertyForm(request.POST)
         if form.is_valid():
             
+            # if
             cd = form.cleaned_data
 
             oferty = Oferty()
@@ -54,6 +56,7 @@ def dodawanie_oferty(request):
             print(oferty)
 
             return redirect('form')
+
 
 
     else:

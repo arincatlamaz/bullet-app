@@ -17,7 +17,11 @@ class OfertyForm(forms.ModelForm):
     czas_odjazdu = forms.TimeField(widget=TimeInput)
     czas_dojazdu = forms.TimeField(widget=TimeInput)
     
-    
+    def verify(self):
+        if self.cena <= 0:
+            
+            return False
+
     class Meta:
         
         model = Oferty
