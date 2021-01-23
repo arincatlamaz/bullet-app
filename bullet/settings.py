@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
+import posixpath
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -78,7 +79,7 @@ DATABASES={
    'default':{
       'ENGINE':'django.db.backends.postgresql_psycopg2',
       'NAME':'bullet',
-      'USER':'arincatlamaz',
+      'USER':'v.nefedova772',
       'PASSWORD':'root',
       'HOST':'127.0.0.1',
       'PORT':'5432',
@@ -110,6 +111,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -123,3 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]

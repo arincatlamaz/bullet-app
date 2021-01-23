@@ -1,0 +1,23 @@
+{% extends 'MainApp/layout.html' %} {% block title %} {% endblock %} {% block content %}
+<form action="/action_page.php" method="post">
+
+
+    <div class="container-login " id="login">
+
+        <div class="information">
+            <h1> Zaloguj się</h1>
+            <label for="text"> <b>Nazwa użytkownika:</b> </label>
+            <input type="text" placeholder="Wprowadź nazwę użytkownika" required>
+            <label for="password"><b>Hasło:</b>  </label>
+            <input type="password" placeholder="Wprowadź hasło" required>
+
+            <button type="submit" class="submit">Zaloguj się</button>
+            <P> Nie masz konta? </P>
+
+            <button onclick="document.location='registration'" , type=" button" , class="cancelbtn">Utwórz konto</button>
+
+
+        </div>
+    </div>
+</form>
+{% endblock %}
