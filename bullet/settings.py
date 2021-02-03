@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'MainApp',
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,11 +79,9 @@ WSGI_APPLICATION = 'bullet.wsgi.application'
 DATABASES={
    'default':{
       'ENGINE':'django.db.backends.postgresql_psycopg2',
-      'NAME':'bullet',
-      'USER':'v.nefedova772',
-      'PASSWORD':'root',
-      'HOST':'127.0.0.1',
-      'PORT':'5432',
+      'OPTIONS' : {
+          'read_default_file' : os.path.join(BASE_DIR, 'db.config'),
+      },
    }
 }
 
