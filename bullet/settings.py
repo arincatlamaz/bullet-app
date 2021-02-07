@@ -79,10 +79,12 @@ DATABASES={
    'default':{
       'ENGINE':'django.db.backends.postgresql_psycopg2',
       'NAME':'bullet',
-      'USER':'v.nefedova772',
+      'USER':'postgres',
       'PASSWORD':'root',
       'HOST':'127.0.0.1',
       'PORT':'5432',
+      'TEST': {'NAME': 'test_MainApp',},
+      'DISABLE_SERVER_SIDE_CURSORS': True,
    }
 }
 

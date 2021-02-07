@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+<body>
+  <form method="POST">
+    {% csrf_token %}
+    
+    <h1>Oferty Tras</h1>
+    
+    <p>Oferty dla kierowcow</p>
+    {% for Oferta in wszystkieoferty2 %}
+    <h1>Czas odjazdu</h1>
+    {{ Oferta.czas_odjazdu }}<br>
+    <h1>Czas dojazdu</h1>
+    {{ Oferta.czas_dojazdu }}
+    <h1>Data</h1>
+    {{ Oferta.data }}
+    <h1></h1>
+    {% endfor %}
+    
+  </form>
+</body>
+</html>

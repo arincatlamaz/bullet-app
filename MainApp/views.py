@@ -2,6 +2,9 @@ from django.shortcuts import redirect, render, HttpResponse, get_object_or_404
 from .models import Oferty, Uzytkownik
 from .forms import OfertyForm, UserRegistrationForm
 from django.contrib.auth import authenticate
+from django.core.exceptions import ValidationError
+from django import forms
+
 
 
 
@@ -22,23 +25,44 @@ def about(request):
         }
     )
 
+
+def ofertytras(request):
+
+    
+
+
+    wszystkieoferty2 = Oferty.objects.all()[:2]
+
+    context = {'wszystkieoferty2':wszystkieoferty2}
+
+    
+
+
+    return render(request, "MainApp/ofertytras.html", context)
+
+
+
+
+
 def dodawanie_oferty(request):
 
-    users = Uzytkownik.objects.all()
-    print(users)
+    wszystkieoferty = Oferty.objects.all()
+    print(wszystkieoferty)
 
     if request.method == "POST":
-
+        
 
         form = OfertyForm(request.POST)
         if form.is_valid():
             
-            # if
+            
+            
             cd = form.cleaned_data
 
             oferty = Oferty()
 
             oferty.czas_dojazdu = cd.get('czas_dojazdu')
+            print(oferty.czas_dojazdu)
 
             oferty.czas_odjazdu = cd.get('czas_odjazdu')
 
@@ -51,6 +75,9 @@ def dodawanie_oferty(request):
             oferty.cena = cd.get('cena')
             
             oferty.rodzaj_ofert = cd.get('rodzaj_ofert')
+            
+            
+
 
             
             oferty.save()
@@ -73,26 +100,32 @@ def dodawanie_oferty(request):
 def login(request):
     return render(request, 'MainApp/login.html')
 
-#def registration(request):
+
+
+
+
+def registration(request):
     
-    #return render(request, 'MainApp/registration.html')
-def register(request):
     if request.method == 'POST':
-        print ('zarejestrował')
         user_form = UserRegistrationForm(request.POST)
-        print (user_form.is_valid())
-        print (user_form.cleaned_data)
         if user_form.is_valid():
-            print('user form is valid')
-            print(user_form.cleaned_data ['password'])
-            print(user_form.cleaned_data ['email'])
-            # Create a new user object but avoid saving it yet
-            new_user = user_form.save(commit=False)
-            # Set the chosen password
-            new_user.set_password(user_form.cleaned_data['password'])
-            # Save the User object
-            new_user.save()
+            user = form.save(commit=False)
+            print(user)
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            print(username)
+            print(password)
+            profile = authenticate(username = username, password = password)
+            print(profile)
+            user.save()
+            currentUser = Uzytkownik()
+            currentUser.save() 
+                      
+            print(currentUser)
+            
             return render(request, 'MainApp/about.html', {'new_user': new_user})
+        else:
+            print(user_form.errors)
     else:
         user_form = UserRegistrationForm()
     return render(request, 'MainApp/registration.html', {'form': user_form})

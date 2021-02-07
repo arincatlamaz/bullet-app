@@ -3,6 +3,8 @@ from django.dispatch import receiver
 from djchoices import ChoiceItem, DjangoChoices
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UsernameField
+
 
 # Create your models here.
 
@@ -66,6 +68,7 @@ class Uzytkownik(models.Model):
     trasa           = models.ForeignKey(Trasa, name="trasa_id", on_delete=models.CASCADE)
     ocena           = models.ForeignKey(Ocenianie, name="ocena_id", on_delete=models.CASCADE)
     uzytkownik = models.OneToOneField(User,default=None, on_delete = models.CASCADE)
+    USERNAME_FIELD = 'username'
 
 
     def __str__(self):
@@ -75,7 +78,7 @@ class Uzytkownik(models.Model):
 class Oferty(models.Model):
 
     """Oferty"""
-    uzytkownik       = models.ForeignKey(Uzytkownik, on_delete=models.SET_NULL, null=True, blank=True, default = None)
+    uzytkownik_id       = models.ForeignKey(Uzytkownik, on_delete=models.SET_NULL, null=True, blank=True, default = None)
     data                = models.DateField()
     czas_odjazdu        = models.TimeField()
     czas_dojazdu        = models.TimeField()
@@ -92,4 +95,9 @@ class Oferty(models.Model):
     )
     
     rodzaj_ofert        = models.CharField(max_length=50, choices=RODZAJE)
+
+    
+    
+    def get_absolute_url(self):
+        return reverse('oferty:detail', kwargs={'id': self.id})
 
