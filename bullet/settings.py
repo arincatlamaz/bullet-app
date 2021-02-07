@@ -79,9 +79,10 @@ WSGI_APPLICATION = 'bullet.wsgi.application'
 DATABASES={
    'default':{
       'ENGINE':'django.db.backends.postgresql_psycopg2',
-      'OPTIONS' : {
-          'read_default_file' : os.path.join(BASE_DIR, 'db.config'),
-      },
+      'NAME' : 'bullet',
+      'HOST' : '127.0.0.1',
+      'USER' : 'postgres',
+      'PASSWORD' : 'root',
    }
 }
 

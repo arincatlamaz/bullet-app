@@ -11,5 +11,6 @@ bullet/__pycache__/
 MainApp/__pycache__/
 MainApp/migrations/__pycache__/
 accounts/__pycache__/
+accounts/migrations/__pycache__/
 
 db.config

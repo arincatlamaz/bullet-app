@@ -16,9 +16,24 @@
             <li>
                 <a onclick="document.location='registration'">Dodaj ofertę</a>
             </li>
+	    {% if user.is_authenticated %}
             <li>
-                <a onclick="document.location='registration'">Moje konto</a>
+		    <a href="{% url 'accounts:my_account' %}">Moje konto</a>
             </li>
+	    <li>
+	        <form action="{% url 'accounts:logout' %}" method="post">
+		   {% csrf_token %}
+		    <button type="submit">Wylogowanie</button>
+		</form>
+	    </li>
+	    {% else %}
+	    <li>
+		 <a href="{% url 'accounts:registration' %}">Rejestracja</a>
+	    </li>
+	    <li>
+		  <a href="{% url 'accounts:login' %}">Zaloguj sie</a>
+            </li>
+	    {% endif %}
 
         </ul>
     </nav>
