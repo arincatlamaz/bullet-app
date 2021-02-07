@@ -1,0 +1,37 @@
+{% extends 'MainApp/layout.html' %} {% block title %} {% endblock %} {% block content %}
+<header id="header">
+    <a class="logo" onclick="document.location='about'"><img alt="" src="../static/MainApp/img/pula.png"></a>
+    <ul class="hed-list">
+        <li>
+            <a onclick="document.location='about'">Co to jest?</a>
+        </li>
+        <li>
+            <a onclick="document.location='obecne'">Obecne przejazdy</a>
+        </li>
+        <li>
+            <a onclick="document.location='oferta'">Oferty</a>
+        </li>
+        <li>
+            <a onclick="document.location='dodaj'">Dodaj ofertę</a>
+        </li>
+        <li>
+            <a onclick="document.location='account'">Moje konto</a>
+        </li>
+
+    </ul>
+
+</header>
+<section class="account">
+    <div class="myAccount">
+        <h2 style="margin: 20px 0 40px;">Moje dane</h2>
+        <div class="my-icon"><i class="fas fa-user"></i></div>
+        <p> Veronika Nefodva</p>
+        <p> vnefodova@edu.cdv.pl</p>
+        <p>+23456789098765</p>
+        <div class="button-myAccount">
+            <button class="btn-m" style="margin-right: 5px;">Zmien informacje</button>
+            <button class="btn-m" style="margin-left: 5px;">Historia</button>
+        </div>
+    </div>
+</section>
+{% endblock %}

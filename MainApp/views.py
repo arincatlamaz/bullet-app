@@ -24,8 +24,8 @@ def about(request):
 
 def dodawanie_oferty(request):
 
-    users = Uzytkownik.objects.all()
-    print(users)
+    wszystkieoferty = Oferty.objects.all()
+    print(wszystkieoferty)
 
     if request.method == "POST":
 
@@ -63,10 +63,6 @@ def dodawanie_oferty(request):
 
     return render(request, 'MainApp/form.html', {'form':form,})
 
-
-
-
-
 def login(request):
     return render(request, 'MainApp/login.html')
 
@@ -93,3 +89,21 @@ def register(request):
     else:
         user_form = UserRegistrationForm()
     return render(request, 'MainApp/registration.html', {'form': user_form})
+
+def account(request):
+    return render(request, 'MainApp/account.html')
+
+def dodaj(request):
+    return render(request, 'MainApp/dodaj.html')
+
+def Kierowca(request):
+    return render(request, 'MainApp/Kierowca.html')
+
+def Pasazer(request):
+    return render(request, 'MainApp/Pasazer.html')
+
+def oferta(request):
+    return render(request, 'MainApp/oferta.html')
+
+def obecne(request):
+    return render(request, 'MainApp/obecne.html')   

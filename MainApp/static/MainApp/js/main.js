@@ -11,3 +11,8 @@ $("#btn-to-studio").on("click", "a", function(event) {
     //анимируем переход на расстояние - top за 1500 мс
     $('body,html').animate({ scrollTop: top }, 1500);
 });
+$(window).scroll(function() {
+    var top = $(document).scrollTop();
+    if (top < 200) $("#header").removeClass('fixed-header');
+    else $("#header").addClass('fixed-header');
+});

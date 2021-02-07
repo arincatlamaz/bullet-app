@@ -15,6 +15,12 @@ urlpatterns = [
     url(r'login$', views.login, name='login'),
     url(r'registration$', views.register, name='registration'),
     url(r'^form$', views.dodawanie_oferty, name='form'),
+    url(r'^account', views.account, name='account'),
+    url(r'^dodaj', views.dodaj, name='dodaj'),
+    url(r'^Kierowca', views.Kierowca, name='Kierowca'),
+    url(r'^Pasazer', views.Pasazer, name='Pasazer'),
+    url(r'^oferta', views.oferta, name='oferta'),
+    url(r'^obecne', views.obecne, name='obecne'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 

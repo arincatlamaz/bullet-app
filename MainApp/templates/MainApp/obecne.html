@@ -1,0 +1,83 @@
+{% extends 'MainApp/layout.html' %} {% block title %} {% endblock %} {% block content %}
+<header id="header">
+    <a class="logo" onclick="document.location='about'"><img alt="" src="../static/MainApp/img/pula.png"></a>
+    <ul class="hed-list">
+        <li>
+            <a onclick="document.location='about'">Co to jest?</a>
+        </li>
+        <li>
+            <a onclick="document.location='obecne'">Obecne przejazdy</a>
+        </li>
+        <li>
+            <a onclick="document.location='oferta'">Oferty</a>
+        </li>
+        <li>
+            <a onclick="document.location='dodaj'">Dodaj ofertę</a>
+        </li>
+        <li>
+            <a onclick="document.location='account'">Moje konto</a>
+        </li>
+    </ul>
+</header>
+<section class="oferty">
+    <div class="wybor">
+        <h1>Moję zarezerwowane oferty</h1>
+    </div>
+    <div class="oferty-w">
+        <!--  pasazer dodal oferte -->
+        <div class="row">
+            <div class="left"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="right">
+                <h2>Z: Chaliszewo 72 DO: Niepodlieglosci</h1>
+                    <h1>DATA: 12.01, GODZINA: 12:30, ILOŚĆ OSÓB: 2, CENA: 10 zl</h2>
+                <p>KOMENTARZ: dfghjhgfd</p>
+            </div>
+            <div class="prawo">
+                <button onclick="document.location='obecne'" , type="button" class="btn-ja">Lista pasażerów </button>
+            </div>
+        </div>
+        <!--  pasazer zarezerwowal oferte -->
+        <div class="row">
+            <div class="left"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="right">
+                <h2>Z: Chaliszewo 72 DO: Niepodlieglosci</h1>
+                    <h1>DATA: 12.01, GODZINA: 12:30, ILOŚĆ MIEJSC: 2, MARKA: TOYOTA, CENA: 10 zl</h2>
+                <p>KOMENTARZ: dfghjhgfd</p>
+            </div>
+            <div class="prawo">
+                <p>Status:</p>
+                <div class="status-yes"><i class="fas fa-check-circle"></i></div>
+                <!-- <div class="status-no"><i class="fas fa-times-circle"></i></div> -->
+                <!-- <div class="status-unknown"><i class="fas fa-question-circle"></i></div> -->
+            </div>
+        </div>
+        <!-- kierowca dodal oferte  -->
+        <div class="row">
+            <div class="left"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="right">
+                <h2>Z: Chaliszewo 72 DO: Niepodlieglosci</h1>
+                    <h1>DATA: 12.01, GODZINA: 12:30, ILOŚĆ MIEJSC: 2, MARKA: TOYOTA, CENA: 10 zl</h2>
+                <p>KOMENTARZ: dfghjhgfd</p>
+            </div>
+            <div class="prawo">
+                <button onclick="document.location='obecne'" , type="button" class="btn-ja">lista kierowców</button>
+            </div>
+        </div>
+        <!--  kierowca zarezerwowal oferte -->
+        <div class="row">
+            <div class="left"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="right">
+                <h2>Z: Chaliszewo 72 DO: Niepodlieglosci</h1>
+                    <h1>DATA: 12.01, GODZINA: 12:30, ILOŚĆ OSÓB: 2, CENA: 10 zl</h2>
+                <p>KOMENTARZ: dfghjhgfd</p>
+            </div>
+            <div class="prawo">
+                <p>Status:</p>
+                <!-- <div class="status-yes"><i class="fas fa-check-circle"></i></div> -->
+                <div class="status-no"><i class="fas fa-times-circle"></i></div>
+                <!-- <div class="status-unknown"><i class="fas fa-question-circle"></i></div> -->
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

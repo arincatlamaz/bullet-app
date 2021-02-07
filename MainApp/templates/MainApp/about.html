@@ -1,29 +1,27 @@
  {% extends 'MainApp/layout.html' %} {% block title %} {% endblock %} {% block content %}
 <header id="header">
-    <a class="logo-animation-scale" href="#"><img alt="" src="../static/MainApp/img/pula.png"></a>
-    <div id="bars-btn"><i class="fas fa-bars"></i></div>
-    <nav class="animation-scale" id="menu">
-        <ul class="nav-list">
-            <li>
-                <a onclick="document.location='registration'">Co to jest?</a>
-            </li>
-            <li>
-                <a onclick="document.location='registration'">Obecne przejazdy</a>
-            </li>
-            <li>
-                <a onclick="document.location='registration'">Oferty</a>
-            </li>
-            <li>
-                <a onclick="document.location='registration'">Dodaj ofertę</a>
-            </li>
-            <li>
-                <a onclick="document.location='registration'">Moje konto</a>
-            </li>
+    <a class="logo" onclick="document.location='about'"><img alt="" src="../static/MainApp/img/pula.png"></a>
+    <ul class="hed-list">
+        <li>
+            <a onclick="document.location='about'">Co to jest?</a>
+        </li>
+        <li>
+            <a onclick="document.location='obecne'">Obecne przejazdy</a>
+        </li>
+        <li>
+            <a onclick="document.location='oferta'">Oferty</a>
+        </li>
+        <li>
+            <a onclick="document.location='dodaj'">Dodaj ofertę</a>
+        </li>
+        <li>
+            <a onclick="document.location='account'">Moje konto</a>
+        </li>
 
-        </ul>
-    </nav>
+    </ul>
+
 </header>
-<section class="main-banner">
+<section class="main-banner" id="about">
 
     <div class="main-slogan">
         <h1>
@@ -38,7 +36,7 @@
                 <a href="#kto">Dla kogo</a>
             </li>
             <li>
-                <a href="#zalety">Zalety Aplikacji</a>
+                <a href="#zalety">Co zyskujesz z Aplikacji</a>
             </li>
             <li>
                 <a href="#jak">Jak dziala Aplikacja</a>
@@ -63,7 +61,7 @@
                 <p>- Dni mijają w ten sam sposób, nie poznałeś nowych znajomych.</p>
                 <p>- Nie masz pieniędzy na taksówkę.</p>
                 <p>- Spędzasz dużo czasu na dojazdach do i z pracy środkami transportu publicznego.</p>
-                <button class="btn-look"> Lets talk </button>
+
             </div>
 
         </div>
@@ -71,39 +69,36 @@
 </section>
 <section class="zalety" id="zalety">
     <div class="container-zalety">
+
         <div class="row">
             <div class="col ">
-                <h2 style="margin: 0 0 27px 0;">Co zyskujesz korzystając z naszej aplikacji?</h2>
                 <div class="row-zaleta">
                     <div class="col-zaleta">
-                        <div class="why-icon"><i class="icon-flag"></i></div>
-                        <span class="choose-title">
-                            Pieniądze</span>
-                        <p> Pasażer zyskuje komfort w korzystnej cenie.</p>
-                        <p>Kierowca oszczędza na paliwie.</p>
-                    </div>
-
-                    <div class="col-zaleta">
-                        <div class="why-icon"><i class="icon-clock"></i></div>
-                        <span class="choose-title">Wygoda</span>
-                        <p> Kierowca i pasażer zdobywają nowe znajomości.</p>
-                        <p>Kierowca i pasażer mogą wybrać, z kim jechać.</p>
+                        <div class="why-icon"><i class="fas fa-car-alt"></i></div>
+                        <span class="choose-title">Będąc kierowcą</span>
+                        <p><i class="fas fa-check"></i> Prosty i szybki sposób przyjmowania zgłoszeń</p>
+                        <p><i class="fas fa-check"></i> Optymalizację przejazdów - łączenie zgłoszeń, planowanie przejazdów</p>
+                        <p><i class="fas fa-check"></i> Niezależność od korporacji - będziesz sam sobie sterem i okrętem</p>
+                        <p><i class="fas fa-check"></i> Możliwość wyboru godzin pracy - Ty decydujesz kiedy pracujesz</p>
                     </div>
                     <div class="col-zaleta">
-                        <div class="why-icon"><i class="icon-hotairballoon"></i></div>
-                        <span class="choose-title">Czas</span>
-                        <p> Pasażer spędza mniej czasu na dojazdach do i z pracy.</p>
-                        <p>Kierowca spędza czas z zyskiem.</p>
+                        <div class="why-icon"><i class="fas fa-user"></i></div>
+                        <span class="choose-title">Będąc pasażerem</span>
+                        <p><i class="fas fa-check"></i> Korzystną cenę przy zachowaniu wysokiego komfortu przejazdu</p>
+                        <p><i class="fas fa-check"></i> Prosty i szybki sposób na zamawianie transportu do wybranej lokalizacji</p>
+                        <p><i class="fas fa-check"></i> Możliwość negocjacji ceny przed realizacją usługi</p>
+                        <p><i class="fas fa-check"></i> Możliwość wyboru preferowanej marki samochodu</p>
                     </div>
-                    <div class="col-zaleta">
-                        <div class="why-icon"><i class="icon-heart"></i></div>
-                        <span class="choose-title">Komunikacja</span>
-                        <p>Kierowca i pasażer uzgadniają cenę.</p>
-                        <p>Dla kierowcy i pasażera dostępny czat w aplikacji.</p>
-                    </div>
+                </div>
+                <div class="col-all">
+                    <div class="why-icon"><i class="fas fa-user-friends"></i></div>
+                    <span class="choose-title">Będąc kierowcą i pasażerem</span>
+                    <p><i class="fas fa-check"></i> Możliwość czatowania - szybkie ustalenia przed realizacją usługi, np. zmiana godziny, uwagi, komentarze, sugestie</p>
+                    <p><i class="fas fa-check"></i> Możliwość poznania ciekawych ludzi - kierowcą/pasażerem może być każdy</p>
                 </div>
             </div>
             <div class="col">
+                <h2 style="margin: 0 0 27px 0;">Co zyskujesz korzystając z naszej aplikacji?</h2>
                 <div class="position-img">
                     <img src="../static/MainApp/img/happy.jpg" alt="sad">
                 </div>
@@ -111,4 +106,55 @@
         </div>
     </div>
 </section>
+<section class="moz" id="moz">
+    <div class="container-moz">
+        <h2 style="padding: 30px 0 40px;"> Jak dziala Aplikacja?</h2>
+        <div class="possibility">
+            <div class="moz-icon"><i class="fas fa-bolt"></i></div>
+            <p> Logujesz się do aplikacji.</p>
+        </div>
+        <div class="possibility">
+            <div class="moz-icon"><i class="fas fa-bolt"></i></div>
+            <p> Chcesz dojechać do określonej lokalizacji.</p>
+        </div>
+        <div class="possibility">
+            <div class="moz-icon"><i class="fas fa-bolt"></i></div>
+            <p> Klikasz na "Oferty", żeby zobaczyć czy istnieje już taka oferta, tak - rezerwujesz.</p>
+        </div>
+        <div class="possibility">
+            <div class="moz-icon"><i class="fas fa-bolt"></i></div>
+            <p> Nie ma potrzebnej oferty - dodajesz swoją i czekasz na rezerwowanie kierowcy lub pasażera.</p>
+        </div>
+        <div class="possibility">
+            <div class="moz-icon"><i class="fas fa-bolt"></i></div>
+            <p> Zarezerwowane oferty możesz zobaczyć w "Obecne oferty".</p>
+        </div>
+        <div class="possibility">
+            <div class="moz-icon"><i class="fas fa-bolt"></i></div>
+            <p> Jeżeli dodasz oferte, możesz zobaczyć z kim jechać.</p>
+        </div>
+        <div class="possibility">
+            <div class="moz-icon"><i class="fas fa-bolt"></i></div>
+            <p> Swój status możesz zobaczyć w "Obecne oferty".</p>
+        </div>
+        <div class="possibility">
+            <div class="moz-icon"><i class="fas fa-bolt"></i></div>
+            <p> Będziesz miał czat.</p>
+        </div>
+        <div class="possibility">
+            <div class="moz-icon"><i class="fas fa-bolt"></i></div>
+            <p> I PRZYJEMNEJ PODRÓŻY.</p>
+        </div>
+    </div>
+</section>
+<section class="nowe">
+    <div class="nowe-roz">
+        <div class="container-nowe">
+            <h2>Spróbuj nowe rozwiązanie</h2>
+            <button onclick="document.location='registration'" , class="btn-n">Zarejestruj się</button>
+        </div>
+    </div>
+</section>
+
+
 {% endblock %}
