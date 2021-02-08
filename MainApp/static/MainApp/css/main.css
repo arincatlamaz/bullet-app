@@ -1,6 +1,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
+    background-color: #28292b;
 }
 
 h1 {
@@ -31,7 +32,7 @@ button {
 }
 
 
-/**/
+/*header start*/
 
 #header {
     position: absolute;
@@ -43,85 +44,53 @@ button {
     align-items: center;
     padding: 30px 20px;
     z-index: 9;
-    background-color: #e79f4d;
+    background-color: #c3843c;
     height: 20px;
-    ;
-}
-
-.logo-animation-scale {
-    width: 400px;
-}
-
-.logo-animation-scale img {
-    max-width: 40%;
 }
 
 .logo {
-    display: block;
-    width: 120px;
-    padding: 0 10px 0 0;
+    width: 400px;
 }
 
-.nav-list {
+.logo img {
+    max-width: 40%;
+}
+
+.hed-list {
     display: flex;
 }
 
-.nav-list li {
+.hed-list li {
     margin: 0 34px 0 0;
     font-size: 15px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 2px;
+    cursor: pointer;
 }
 
-.nav-list li a {
-    color: #fff;
+.hed-list li a {
+    color: #000000;
     opacity: 0.7;
     transition: all 0.3s;
+    cursor: pointer;
 }
 
-.nav-list li a:hover {
+.hed-list li a:hover {
     opacity: 1;
 }
 
-.nav-list li:last-child {
+.hed-list li:last-child {
     margin: 0;
 }
 
 #header.fixed-header {
     position: fixed;
     z-index: 5;
-    background-color: #000;
 }
 
-#bars-btn {
-    font-size: 25px;
-    color: #fff;
-    cursor: pointer;
-    display: none;
-}
 
-.nav-show #menu {
-    display: block;
-    left: 50%;
-    position: absolute;
-    top: 70px;
-    transform: translateX(-50%);
-    display: block;
-    background: #000;
-    width: 90%;
-    padding: 20px;
-    z-index: 5;
-}
-
-.nav-show .nav-list {
-    flex-direction: column;
-    align-items: center;
-}
-
-.nav-show .nav-list li {
-    margin: 0 0 10px;
-}
+/*header end*/
 
 
 /*page  login and registration start */
@@ -139,7 +108,7 @@ button {
     left: 50%;
     transform: translate(-50%, -90%);
     box-shadow: 1px 2px 4px 1px rgba(146, 121, 17);
-    background-color: #ffe473;
+    background-color: #e79f4d;
 }
 
 .information h1 {
@@ -267,7 +236,7 @@ input[type=email]::-webkit-input-placeholder {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 865px;
-    background: rgba(231, 159, 77, 0.6);
+    background: rgba(231, 159, 77, 0.8);
 }
 
 .nav-list {
@@ -276,7 +245,7 @@ input[type=email]::-webkit-input-placeholder {
 
 .nav-list li {
     margin: 0 34px 0 0;
-    font-size: 21px;
+    font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -343,18 +312,7 @@ input[type=email]::-webkit-input-placeholder {
     font-family: 'open_sanslight';
     margin: 0 0 10px;
     color: #f4f4f4;
-}
-
-.btn-look {
-    width: 169px;
-    height: 41px;
-    background-color: #cfcfcf;
-    font-size: 14px;
-    text-transform: uppercase;
-    color: #111;
-    font-family: 'open_sansregular';
-    letter-spacing: 2px;
-    border-radius: 1px;
+    font-size: 21px;
 }
 
 
@@ -377,7 +335,7 @@ input[type=email]::-webkit-input-placeholder {
 .container-zalety .row {
     display: flex;
     margin: 0 -30px;
-    padding: 20px 0;
+    padding: 40px 0;
     align-items: center;
 }
 
@@ -392,8 +350,14 @@ input[type=email]::-webkit-input-placeholder {
 }
 
 .col .col-zaleta {
-    box-shadow: 2px 2px 2px rgba(40, 41, 43);
+    border: 1px solid rgba(40, 41, 43);
     width: 50%;
+    margin: 0 -2px 1px;
+    text-align: center;
+}
+
+.col .col-all {
+    border: 1px solid rgba(40, 41, 43);
     margin: 0 0px 60px;
     text-align: center;
 }
@@ -422,11 +386,453 @@ input[type=email]::-webkit-input-placeholder {
 
 .col-zaleta span {
     font-family: 'open_sansregular';
-    font-size: 27px;
+    font-size: 22px;
+    display: block;
+    color: #212121;
+    text-align: center;
+    padding: 0 0 15px;
+    letter-spacing: 4px;
+    text-decoration: underline;
+}
+
+.col-all span {
+    font-family: 'open_sansregular';
+    font-size: 22px;
+    display: block;
+    color: #212121;
+    text-align: center;
+    padding: 0 0 15px;
+    letter-spacing: 4px;
+    text-decoration: underline;
+}
+
+.why-icon {
+    font-size: 48px;
+    padding: 15px 0 5px;
+    text-align: center;
+    color: #212121;
+}
+
+.why-choose-us-description span {
+    display: block;
+    color: #212121;
+    text-align: center;
+    padding: 0 0 20px;
+    letter-spacing: 4px;
 }
 
 
 /* container zalety end*/
 
 
+/* container moz start*/
+
+.moz {
+    background-color: #28292b;
+}
+
+.container-moz {
+    margin: 0 auto;
+    max-width: 1050px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.container-moz h2 {
+    font-family: 'dosislight';
+    letter-spacing: 4px;
+    color: #fff;
+    font-size: 37px;
+    display: block;
+    text-align: center;
+    margin: 0;
+}
+
+.moz-icon {
+    font-size: 28px;
+    padding: 0 20px;
+    text-align: center;
+    color: #f4f4f4;
+    display: inline;
+}
+
+.container-moz p {
+    font-family: 'open_sanslight';
+    margin: 0 0 10px;
+    color: #f4f4f4;
+    font-size: 22px;
+    padding: 20px 0;
+    display: inline;
+}
+
+.possibility {
+    padding: 20px 0;
+}
+
+
+/* container moz end*/
+
+
+/* container nowe start */
+
+.nowe {
+    background-color: #e79f4d;
+    height: 218px;
+    padding: 0;
+    margin: 0;
+}
+
+.nowe-roz {
+    max-width: 405px;
+    width: 100%;
+    height: 218px;
+    margin: 0 auto;
+    text-align: center;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-nowe {
+    border: 7px solid rgba(40, 41, 43);
+    border-radius: 20px;
+}
+
+.container-nowe h2 {
+    color: #28292b;
+    margin: 0;
+    padding: 6px 0 25px;
+    letter-spacing: 5px;
+    font-family: 'dosislight';
+    display: block;
+}
+
+.btn-n {
+    width: 217px;
+    height: 41px;
+    text-align: center;
+    background-color: #28292b;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #cfcfcf;
+    font-family: 'open_sansregular';
+    margin-bottom: 10px;
+}
+
+
+/* container nowe end */
+
+
 /* page about end */
+
+
+/* page account start */
+
+.account {
+    position: relative;
+    height: 100vh;
+    background-color: #e79f4d;
+}
+
+.myAccount {
+    position: absolute;
+    padding: 16px;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    box-shadow: 1px 2px 2px 1px rgba(40, 41, 43);
+    background-color: #28292b;
+    text-align: center;
+}
+
+.myAccount h2 {
+    font-family: 'open_sansregular';
+    letter-spacing: 8px;
+    color: #fff;
+    font-size: 30px;
+    display: block;
+    text-align: center;
+}
+
+.my-icon {
+    font-size: 48px;
+    padding: 0 0 20px;
+    text-align: center;
+    color: #f4f4f4;
+    display: inline;
+}
+
+.myAccount p {
+    font-family: 'open_sanslight';
+    margin: 0 0 10px;
+    color: #f4f4f4;
+    font-size: 22px;
+    padding: 10px 0;
+}
+
+.btn-m {
+    width: 217px;
+    height: 41px;
+    text-align: center;
+    background-color: #cfcfcf;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #111;
+    font-family: 'open_sansregular';
+}
+
+
+/* page account end */
+
+
+/* page dodaj start */
+
+.container-dodaj {
+    position: relative;
+    height: 100vh;
+    background-color: #28292b;
+}
+
+.dodaj {
+    position: absolute;
+    padding: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    box-shadow: 1px 2px 2px 1px rgba(40, 41, 43);
+    background-color: #e79f4d;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.dodaj h1 {
+    font-family: 'open_sansregular';
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #28292b;
+    font-size: 30px;
+    display: block;
+    text-align: center;
+}
+
+.btn-ja {
+    width: 217px;
+    height: 41px;
+    text-align: center;
+    background-color: #cfcfcf;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #111;
+    font-family: 'open_sansregular';
+    margin-bottom: 15px;
+}
+
+
+/* page dodaj end */
+
+
+/* page dodajPasazer start */
+
+.dodajPasazer {
+    position: relative;
+    height: 150vh;
+    background-color: #28292b;
+}
+
+.Pasazer {
+    position: absolute;
+    padding: 16px;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 2px 2px 1px rgba(40, 41, 43);
+    background-color: #e79f4d;
+    border-radius: 20px;
+}
+
+.Pasazer h1 {
+    font-family: 'open_sansregular';
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #28292b;
+    font-size: 30px;
+    display: block;
+    text-align: center;
+}
+
+
+/* page dodajPasazer end */
+
+
+/* page dodajKierowca start */
+
+.dodajKierowca {
+    position: relative;
+    height: 150vh;
+    background-color: #28292b;
+}
+
+.Kierowca {
+    position: absolute;
+    padding: 16px;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 2px 2px 1px rgba(40, 41, 43);
+    background-color: #e79f4d;
+    border-radius: 20px;
+}
+
+.Kierowca h1 {
+    font-family: 'open_sansregular';
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #28292b;
+    font-size: 30px;
+    display: block;
+    text-align: center;
+}
+
+input[type=date],
+input[type=time],
+input[type=number] {
+    width: 100%;
+    padding: 13px 21px;
+    margin: 8px 0 12px 0;
+    display: inline-block;
+    border: 1px solid #28292b;
+    box-sizing: border-box;
+    background: #28292b4d;
+    border-radius: 6px;
+}
+
+input[type=text]::-webkit-input-placeholder {
+    color: #2b2b2a;
+}
+
+input:focus {
+    outline: none;
+}
+
+input:hover {
+    opacity: 0.7;
+}
+
+
+/* page dodajKierowca end */
+
+
+/* page oferty and obecne start */
+
+.oferty {
+    background-color: #28292b;
+    height: 100%;
+}
+
+.wybor {
+    max-width: 500px;
+    width: 100%;
+    margin: 120px auto 50px auto;
+    text-align: right;
+}
+
+.wybor b {
+    text-transform: uppercase;
+    font-family: 'open_sansregular';
+    font-size: 19px;
+    color: #f4f4f4;
+}
+
+input[type="radio"] {
+    padding: 13px 21px;
+    margin: 8px 0 12px 0;
+    display: inline-block;
+}
+
+.oferty-w {
+    max-width: 1500px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.oferty-w .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px 90px;
+    align-items: center;
+}
+
+.oferty-w .left {
+    width: 15%;
+    font-size: 48px;
+    background-color: #e79f4d;
+    font-size: 185px;
+    padding: 0 10px;
+    height: 200px;
+    text-align: center;
+}
+
+.oferty-w .right {
+    width: 63%;
+    background-color: #e79f4d;
+    height: 200px;
+    text-align: left;
+}
+
+.right h2 {
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.right h1 {
+    text-align: left;
+    display: inline;
+}
+
+.oferty-w .prawo {
+    text-align: left;
+    width: 20%;
+    background-color: #e79f4d;
+    height: 200px;
+}
+
+.prawo .btn-ja {
+    margin: 40px 20px;
+    display: block;
+}
+
+
+/* page oferty end */
+
+.wybor h1 {
+    margin: 140px auto 70px auto;
+    color: #f4f4f4;
+    text-transform: uppercase;
+}
+
+.prawo p {
+    text-align: center;
+    font-size: 20px;
+}
+
+.status-yes {
+    text-align: center;
+    font-size: 50px;
+    color: #087a04;
+}
+
+.status-no {
+    text-align: center;
+    font-size: 50px;
+    color: #ab0000;
+}
+
+.status-unknown {
+    text-align: center;
+    font-size: 50px;
+}
+
+
+/* page obecne end */

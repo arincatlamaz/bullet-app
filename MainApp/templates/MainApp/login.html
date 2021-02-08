@@ -1,7 +1,6 @@
 {% extends 'MainApp/layout.html' %} {% block title %} {% endblock %} {% block content %}
-<form action="/action_page.php" method="post">
-
-
+<form method="post">
+    {% csrf_token %}
     <div class="container-login " id="login">
 
         <div class="information">
@@ -15,8 +14,6 @@
             <P> Nie masz konta? </P>
 
             <button onclick="document.location='registration'" , type=" button" , class="cancelbtn">Utwórz konto</button>
-
-
         </div>
     </div>
 </form>

@@ -50,8 +50,6 @@ class OfertyForm(forms.ModelForm):
         fields = ['data','czas_odjazdu','czas_dojazdu','cena','ilosc_miejsc',
         'komentarz','rodzaj_ofert']
 
-# class Ofertytras(forms.ModelForm):
-
 
     
 

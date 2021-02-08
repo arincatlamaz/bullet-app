@@ -1,0 +1,65 @@
+{% extends 'MainApp/layout.html' %} {% block title %} {% endblock %} {% block content %}
+<header id="header">
+    <a class="logo" onclick="document.location='about'"><img alt="" src="../static/MainApp/img/pula.png"></a>
+    <ul class="hed-list">
+        <li>
+            <a onclick="document.location='about'">Co to jest?</a>
+        </li>
+        <li>
+            <a onclick="document.location='obecne'">Obecne przejazdy</a>
+        </li>
+        <li>
+            <a onclick="document.location='oferta'">Oferty</a>
+        </li>
+        <li>
+            <a onclick="document.location='dodaj'">Dodaj ofertę</a>
+        </li>
+        <li>
+            <a onclick="document.location='account'">Moje konto</a>
+        </li>
+
+    </ul>
+
+</header>
+<section class="oferty">
+    <form action="/action_page.php">
+        <div class="wybor">
+            <input type="radio" id="kierowca" name="user">
+            <label for="kierowca"><b style="padding-right: 25px;">Jestem kierowcą</b></label>
+            <input type="radio" id="pasazer" name="user">
+            <label for="pasazer"><b>Jestem pasażerem</b></label>
+        </div>
+        <div class="oferty-w">
+            <!-- dla kierowców -->
+            <div class="row">
+                <div class="left"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="right">
+                    <h2>Z: Chaliszewo 72 DO: Niepodlieglosci</h1>
+                        <h1>DATA: 12.01, GODZINA: 12:30, ILOŚĆ OSÓB: 2, CENA: 10 zl</h2>
+                    <p>KOMENTARZ: dfghjhgfd</p>
+                </div>
+                <div class="prawo">
+                    <button onclick="document.location='obecne'" , type="button" class="btn-ja">Zarezerwuj </button>
+                    <button onclick="document.location='czat'" , type="button" class="btn-ja">Napisz</button>
+                </div>
+            </div>
+            <!-- dla PASAZERA -->
+            <div class="row">
+                <div class="left"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="right">
+                    <h2>Z: Chaliszewo 72 DO: Niepodlieglosci</h1>
+                        <h1>DATA: 12.01, GODZINA: 12:30, ILOŚĆ MIEJSC: 2, MARKA: TOYOTA, CENA: 10 zl</h2>
+                    <p>KOMENTARZ: dfghjhgfd</p>
+                </div>
+                <div class="prawo">
+                    <button onclick="document.location='obecne'" , type="button" class="btn-ja">Zarezerwuj </button>
+                    <button onclick="document.location='czat'" , type="button" class="btn-ja">Napisz</button>
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+</section>
+
+{% endblock %}

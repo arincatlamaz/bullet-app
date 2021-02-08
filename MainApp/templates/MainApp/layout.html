@@ -9,10 +9,15 @@
     <title>{% block title %}{% endblock %}</title>
     <link href="{% static 'MainApp/css/main.css'%}" rel="stylesheet">
     <link href="{% static 'MainApp/css/font.css'%}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static 'MainApp/js/main.js' %}"></script>
 </head>
 
 <body>
     {% block content %} {% endblock %}
+    
 </body>
 
 </html>
