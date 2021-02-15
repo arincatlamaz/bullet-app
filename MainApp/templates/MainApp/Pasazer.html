@@ -21,14 +21,31 @@
     </ul>
 
 </header>
-<form method="post">
+<form method="POST">
     {% csrf_token %}
     <div class="dodajPasazer">
-
         <div class="Pasazer">
-            <h1>Wypełnij formularz</h1>
+            <h1>Wypełnij formularz</h1>            
             <label for="date"><b>Data wyjazdu:</b> </label>
-            <input type="date" id="date" name="date" required>
+            {{ form.data }}
+            <label for="date"><b>Czas odjazdu:</b> </label>
+            {{ form.czas_odjazdu}}
+            <label for="text"> <b>Punkt początkowy:</b> </label>
+            <p> ulica</p> {{ form.ulica1 }}
+            <p> numer domu</p> {{ form.numer_domu1 }}
+            <p> kod pocztowy</p> {{ form.kod_pocztowy1 }}
+            <label for="text"> <b>Punkt koncowy:</b> </label>
+            <p> ulica</p> {{ form.ulica2 }}
+            <p> numer domu</p> {{ form.numer_domu2 }}
+            <p> kod pocztowy</p> {{ form.kod_pocztowy2 }}
+            <label for="text"> <b>Ilosc miejsc:</b> </label>
+            {{ form.ilosc_miejsc}}
+            <label for="text"> <b>Cena:</b> </label>
+            {{ form.cena }}
+            <label for="text"> <b>Komentarz:</b> </label>
+            {{ form.komentarz }}
+
+            <!-- <input type="date" id="date" name="date" required>
             <label for="appt"><b>O której godzinie:</b> </label>
             <input type="time" id="appt" name="appt" required>
             <label for="text"> <b>Punkt początkowy:</b> </label>
@@ -40,7 +57,7 @@
             <label for="quantity"><b>Cena:</b></label>
             <input type="number" id="quantity" name="quantity" required>
             <label for="text"> <b>Komentarz:</b> </label>
-            <input type="text" id="text" required>
+            <input type="text" id="text" required> -->
             <button type="submit" class="submit">Dodaj nową ofertę</button>
         </div>
     </div>

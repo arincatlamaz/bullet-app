@@ -1,10 +1,10 @@
 {% extends 'MainApp/layout.html' %} {% block title %} {% endblock %} {% block content %}
 <header id="header">
     <a class="logo" onclick="document.location='about'"><img alt="" src="../static/MainApp/img/pula.png"></a>
-    <nav id="menu" class="animation-scale">
+    
 
     
-    <ul class="nav-list">
+    <ul class="hed-list">
         <li>
             <a onclick="document.location='about'">Co to jest?</a>
         </li>
@@ -22,37 +22,63 @@
         </li>
 
     </ul>
-    </nav>
+    
 
 </header>
-<section class="main-banner">
 
 
-<form method="post">
+
+<form method="POST">
     {% csrf_token %}
+    
     <div class="dodajKierowca">
-
         <div class="Kierowca">
             <h1>Wypełnij formularz</h1>
             <label for="date"><b>Data wyjazdu:</b> </label>
-            <input type="date" id="date" name="date" required>
+            {{ form.data }}
+            <label for="date"><b>Czas odjazdu:</b> </label>
+            {{ form.czas_odjazdu}}
+            <label for="text"> <b>Punkt początkowy:</b> </label>
+            <p> ulica</p> {{ form.ulica1 }}
+            <p> numer domu</p> {{ form.numer_domu1 }}
+            <p> kod pocztowy</p> {{ form.kod_pocztowy1 }}
+            
+            <label for="text"> <b>Punkt koncowy:</b> </label>
+            <p> ulica</p> {{ form.ulica2 }}
+            <p> numer domu</p> {{ form.numer_domu2 }}
+            <p> kod pocztowy</p> {{ form.kod_pocztowy2 }}
+            <label for="text"> <b>Ilosc miejsc:</b> </label>
+            {{ form.ilosc_miejsc}}
+            <label for="text"> <b>Cena:</b> </label>
+            {{ form.cena }}
+            <label for="text"> <b>Komentarz:</b> </label>
+            {{ form.komentarz }}
+
+            <!-- <input type="date" id="date" name="date" required>
             <label for="appt"><b>O której godzinie:</b> </label>
+
             <input type="time" id="appt" name="appt" required>
             <label for="text"> <b>Punkt początkowy:</b> </label>
+
             <input type="text" id="text" required>
             <label for="text"> <b>Punkt docelowy:</b> </label>
+
             <input type="text" id="text" required>
             <label for="quantity"><b>Ilość miejsc:</b></label>
+
             <input type="number" id="quantity" name="quantity" required>
             <label for="text"> <b>Marka samochodu:</b> </label>
+
             <input type="text" id="text" required>
             <label for="quantity"><b>Cena:</b></label>
+
             <input type="number" id="quantity" name="quantity" required>
             <label for="text"> <b>Komentarz:</b> </label>
-            <input type="text" id="text" required>
-            <button type="submit" class="submit">Dodaj nową ofertę</button>
+
+            <input type="text" id="text" required>-->
+            <button type="submit" class="submit">Dodaj nową ofertę</button> 
+
         </div>
     </div>
 </form>
-</section>
 {% endblock %}

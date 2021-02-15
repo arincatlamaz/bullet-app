@@ -1,11 +1,7 @@
- {% extends 'MainApp/layout.html' %} {% block title %} {% endblock %} {% block content %}
+{% extends 'MainApp/layout.html' %} {% block title %} {% endblock %} {% block content %}
 <header id="header">
-    <a class="logo-animation-scale" href="#"><img alt="" src="../static/MainApp/img/pula.png"></a>
-    <div id="bars-btn"><i class="fas fa-bars"></i></div>
-    <nav class="animation-scale" id="menu">
-
-    
-    <ul class="nev-list">
+    <a class="logo" onclick="document.location='about'"><img alt="" src="../static/MainApp/img/pula.png"></a>
+    <ul class="hed-list">
         <li>
             <a onclick="document.location='about'">Co to jest?</a>
         </li>
@@ -21,10 +17,9 @@
         <li>
             <a onclick="document.location='account'">Moje konto</a>
         </li>
-        
 
     </ul>
-    </nav>
+
 </header>
 <section class="main-banner" id="about">
 
