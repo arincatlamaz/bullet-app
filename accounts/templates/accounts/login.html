@@ -1,17 +1,26 @@
 {% extends 'MainApp/layout.html' %} {% block title %} {% endblock %} {% block content %}
+<<<<<<< HEAD:MainApp/templates/MainApp/login.html
 <form method="post">
     {% csrf_token %}
+=======
+<form action="{% url 'accounts:login' %}" method="post">
+	{% csrf_token %}
+
+>>>>>>> branchruslana:accounts/templates/accounts/login.html
     <div class="container-login " id="login">
 
         <div class="information">
             <h1> Zaloguj się</h1>
             <label for="text"> <b>Nazwa użytkownika:</b> </label>
-            <input type="text" placeholder="Wprowadź nazwę użytkownika" required>
+	    {{ form.username }}
             <label for="password"><b>Hasło:</b>  </label>
-            <input type="password" placeholder="Wprowadź hasło" required>
+	    {{ form.password }}
 
             <button type="submit" class="submit">Zaloguj się</button>
             <P> Nie masz konta? </P>
+	    {% if form.errors %}
+	    <br/><P> Prosze podac prawidlowa nazwa uzytkownika oraz haslo</P>
+	    {% endif %}
 
             <button onclick="document.location='registration'" , type=" button" , class="cancelbtn">Utwórz konto</button>
         </div>

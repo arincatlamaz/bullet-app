@@ -1,25 +1,39 @@
 {% extends 'MainApp/layout.html' %} {% block title %} {% endblock %} {% block content %}
 <header id="header">
-    <a class="logo" onclick="document.location='about'"><img alt="" src="../static/MainApp/img/pula.png"></a>
-    <ul class="hed-list">
-        <li>
-            <a onclick="document.location='about'">Co to jest?</a>
-        </li>
-        <li>
-            <a onclick="document.location='obecne'">Obecne przejazdy</a>
-        </li>
-        <li>
-            <a onclick="document.location='oferta'">Oferty</a>
-        </li>
-        <li>
-            <a onclick="document.location='dodaj'">Dodaj ofertę</a>
-        </li>
-        <li>
-            <a onclick="document.location='account'">Moje konto</a>
-        </li>
-
-    </ul>
-
+    <a class="logo-animation-scale" href="#"><img alt="" src="../static/MainApp/img/pula.png"></a>
+    <div id="bars-btn"><i class="fas fa-bars"></i></div>
+    <nav class="animation-scale" id="menu">
+        <ul class="nav-list">
+            <li>
+                <a onclick="document.location='registration'">Co to jest?</a>
+            </li>
+            <li>
+                <a onclick="document.location='registration'">Obecne przejazdy</a>
+            </li>
+            <li>
+                <a onclick="document.location='registration'">Oferty</a>
+            </li>
+            <li>
+                <a onclick="document.location='registration'">Dodaj ofertę</a>
+            </li>
+	    {% if user.is_authenticated %}
+            <li>
+		    <a href="{% url 'accounts:my_account' %}">Moje konto</a>
+            </li>
+	    <li>
+	        <form action="{% url 'accounts:logout' %}" method="post">
+		   {% csrf_token %}
+		    <button type="submit">Wylogowanie</button>
+		</form>
+	    </li>
+	    {% else %}
+	    <li>
+		 <a href="{% url 'accounts:registration' %}">Rejestracja</a>
+	    </li>
+	    <li>
+		  <a href="{% url 'accounts:login' %}">Zaloguj sie</a>
+            </li>
+	    {% endif %}
 </header>
 <section class="main-banner" id="about">
 

@@ -1,5 +1,5 @@
-{% extends 'MainApp/layout.html' %} {% block title %} {% endblock %} {% block content %}
-<form method="post">
+{% extends 'MainApp/layout.html' %}{% block title %} {% endblock %} {% block content %}
+<form method="post" action="{% url 'accounts:registration' %}">
     {% csrf_token %}
 
     <div class="container-login">
@@ -7,21 +7,21 @@
         <div class="information">
             <h1> Zarejestruj się</h1>
             <div class="form-group">
-                <label for="text"> <b>Nazwa użytkownika:</b> </label> {{ form.username }}
+                <label for="username"> <b>Nazwa użytkownika:</b> </label> {{ form.username }}
             </div>
             <div class="form-group">
                 <label for="email"> <b>Email:</b> </label> {{ form.email }}
             </div>
             <div class="form-group">
-                <label for="password"><b>Hasło:</b>  </label> {{ form.password }}
+                <label for="password1"><b>Hasło:</b>  </label> {{ form.password1 }}
             </div>
             <div class="form-group">
-                <label for="password"><b>Hasło:</b>  </label> {{ form.password2 }}
+                <label for="password2"><b>Powtorz hasło:</b>  </label> {{ form.password2 }}
             </div>
             <button type="submit" class="submit">Zarejestruj się</button>
             <P> Masz konto? </P>
 
-            <button onclick="document.location='login'" , type=" button" , class="cancelbtn">Zaloguj się</button>
+            <button onclick="document.location='accounts:login'" , type=" button" , class="cancelbtn">Zaloguj się</button>
 
         </div>
     </div>
