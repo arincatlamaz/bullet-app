@@ -60,12 +60,12 @@ class Uzytkownik(models.Model):
 
     uzytkownik_imie     = models.CharField(max_length=50)
     uzytkownik_nazwisko = models.CharField(max_length=50)
-    uzytkownik_telefon  = models.IntegerField()
+    uzytkownik_telefon  = models.IntegerField(default=0)
     uzytkownik_mail     = models.EmailField(max_length=100)
-    role            = models.ForeignKey(Role, name="role_id", on_delete=models.CASCADE)
-    trasa           = models.ForeignKey(Trasa, name="trasa_id", on_delete=models.CASCADE)
-    ocena           = models.ForeignKey(Ocenianie, name="ocena_id", on_delete=models.CASCADE)
-    uzytkownik = models.OneToOneField(User,default=None, on_delete = models.CASCADE)
+    role            = models.ForeignKey(Role, null=True, on_delete=models.SET_NULL)
+    trasa           = models.ForeignKey(Trasa, null=True, on_delete=models.SET_NULL)
+    ocena           = models.ForeignKey(Ocenianie, null=True, on_delete=models.SET_NULL)
+    uzytkownik = models.OneToOneField(User, on_delete = models.CASCADE)
 
 
     def __str__(self):
