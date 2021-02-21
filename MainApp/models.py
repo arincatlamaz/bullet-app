@@ -13,16 +13,15 @@ class Role(models.Model):
 
     """Role"""
 
-    role_id             = models.CharField(max_length=10, primary_key=True)
-    pasazer             = models.BooleanField(default=False)
-    kierowca            = models.BooleanField(default=False)
+
+    pasazer             = models.BooleanField(default=False, null=True)
+    kierowca            = models.BooleanField(default=False, null=True)
 
 
 class Ocenianie(models.Model):
 
     """Ocenianie"""
 
-    ocena_id            = models.CharField(max_length=10, primary_key=True)
     PUNKTOWANIE = (
         ('1', 'Bardzo Zle'),
         ('2', 'Zle'),
@@ -30,45 +29,43 @@ class Ocenianie(models.Model):
         ('4', 'Dobrze'),
         ('5', 'Bardzo Dobrze'),
     )
-    punkt = models.CharField(max_length=60, choices=PUNKTOWANIE)
+    punkt               = models.CharField(max_length=60, choices=PUNKTOWANIE, null=True)
 
 
 class Adres(models.Model):
 
     """Adres"""
 
-    adres_id            = models.CharField(max_length=10, primary_key=True)
-    wojewodztwo         = models.CharField(max_length=50)
-    miejscowosc         = models.CharField(max_length=50)
-    ulica               = models.CharField(max_length=50)
-    numer_domu          = models.IntegerField()
-    kod_pocztowy        = models.CharField(max_length=50, default=None)
 
+    wojewodztwo         = models.CharField(max_length=50, null=True)
+    miejscowosc         = models.CharField(max_length=50, null=True)
+    ulica               = models.CharField(max_length=50, null=True)
+    numer_domu          = models.IntegerField(null=True)
 
 
 class Trasa(models.Model):
 
     """Trasa"""
-    
-    trasa_id            = models.CharField(max_length=10, primary_key=True)
-    adres_poczatkowy    = models.ForeignKey(Adres, related_name="adres_pocz", on_delete=models.CASCADE)
-    adres_koncowy       = models.ForeignKey(Adres, related_name="adres_kon", on_delete=models.CASCADE)
-    adres_spotkania     = models.ForeignKey(Adres, related_name="adres_spot", on_delete=models.CASCADE)
+
+    adres_poczatkowy    = models.ForeignKey(Adres, related_name="adres_pocz", on_delete=models.CASCADE, null=True)
+    adres_koncowy       = models.ForeignKey(Adres, related_name="adres_kon", on_delete=models.CASCADE, null=True)
+    adres_spotkania     = models.ForeignKey(Adres, related_name="adres_spot", on_delete=models.CASCADE, null=True)
+    data                = models.DateTimeField(auto_now=True, null=True)
 
 
 
-class Uzytkownik(models.Model):
+class Uzytkownicy(models.Model):
 
     """Uzytkownik"""
-
-    uzytkownik_imie     = models.CharField(max_length=50,null=True)
-    uzytkownik_nazwisko = models.CharField(max_length=50,null=True)
+    
+    uzytkownik_imie     = models.CharField(max_length=50, null=True)
+    uzytkownik_nazwisko = models.CharField(max_length=50, null=True)
     uzytkownik_telefon  = models.IntegerField(null=True)
-    uzytkownik_mail     = models.EmailField(max_length=100,null=True)
-    role_id             = models.ForeignKey(Role, name="role_id", on_delete=models.CASCADE,null=True)
-    trasa_id            = models.ForeignKey(Trasa, name="trasa_id", on_delete=models.CASCADE,null=True)
-    ocena_id            = models.ForeignKey(Ocenianie, name="ocena_id", on_delete=models.CASCADE,null=True)
-    uzytkownik          = models.OneToOneField(User,default=None, on_delete = models.CASCADE,null=True)
+    uzytkownik_mail     = models.EmailField(max_length=100, null=True)
+    role                = models.ForeignKey(Role, on_delete=models.CASCADE, null=True)
+    trasa               = models.ForeignKey(Trasa, on_delete=models.CASCADE, null=True)
+    ocena               = models.ForeignKey(Ocenianie, on_delete=models.CASCADE, null=True)
+    uzytkownik          = models.OneToOneField(User,default=None, on_delete = models.CASCADE, null=True)
 
 
     def __str__(self):
@@ -79,39 +76,31 @@ class Oferty(models.Model):
 
     """Oferty"""
 
-    oferty_id           = models.CharField(max_length=10, primary_key=True)
-    uzytkownik          = models.ForeignKey(Uzytkownik, on_delete=models.SET_NULL, null=True, blank=True, default = None)
-    data                = models.DateField()
-    czas_odjazdu        = models.TimeField()
-    ilosc_miejsc        = models.IntegerField()
-    cena                = models.IntegerField()
-    komentarz           = models.CharField(max_length=100)
-    trasa_id             = models.ForeignKey(Trasa, on_delete=models.CASCADE, default=None)
-        
+
+    uzytkownik          = models.ForeignKey(Uzytkownicy, on_delete=models.SET_NULL, null=True, blank=True, default = None)
+    data                = models.DateField(null=True)
+    czas_odjazdu        = models.TimeField(null=True)
+    czas_dojazdu        = models.TimeField(null=True)
+    ilosc_miejsc        = models.IntegerField(null=True)
+    cena                = models.IntegerField(null=True)
+    komentarz           = models.CharField(max_length=100, null=True)
+    
+
+
+    RODZAJE     = (
+        ('1', 'Pasazer'),
+        ('2', 'Kierowca'),
+    )
+    
+    rodzaj_ofert        = models.CharField(max_length=50, choices=RODZAJE, null=True)
+
 
 
 class Pojazd(models.Model):
 
     """Pojazd"""
 
-    uzytkownik          = models.ForeignKey(Uzytkownik, on_delete=models.SET_NULL, null=True, blank=True, default = None)
-    oferty_id           = models.ForeignKey(Oferty, name="oferty_id", on_delete=models.CASCADE)
-    marka               = models.CharField(max_length=100)
-    model               = models.IntegerField()
-
-
-class History(models.Model):
-
-    """History"""
-
-    ocena_id            = models.ForeignKey(Ocenianie, name="ocena_id", on_delete=models.CASCADE)
-    oferty_id           = models.ForeignKey(Oferty, name="oferty_id", on_delete=models.CASCADE)
-
-
-class Trasaoferty(models.Model):
-
-    """TrasaOferty"""
-
-    trasa_id            = models.ForeignKey(Trasa, name="trasa_id", on_delete=models.CASCADE)
-    oferty_id           = models.ForeignKey(Oferty, name="oferty_id", on_delete=models.CASCADE)
-
+    uzytkownik          = models.ForeignKey(Uzytkownicy, on_delete=models.SET_NULL, null=True, blank=True, default = None)
+    oferty              = models.ForeignKey(Oferty, name="oferty_id", on_delete=models.CASCADE, null=True)
+    marka               = models.CharField(max_length=100, null=True)
+    model               = models.IntegerField(null=True)

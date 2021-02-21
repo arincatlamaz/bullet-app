@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render, HttpResponse, get_object_or_404
-from .models import Oferty, Uzytkownik, Adres, Trasa
+from .models import Oferty, Uzytkownicy, Adres, Trasa
 from .forms import OfertyForm, UserRegistrationForm, OfertyFormKierowca
 from django.contrib.auth import authenticate
 from django.core.exceptions import ValidationError
