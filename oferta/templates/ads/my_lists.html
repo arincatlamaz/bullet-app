@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% block title %} {% endblock %}
+{% block content %}
+    {{ block.super }}
+    <section class="listy">
+        <div class="form-container">
+            <h1>Мои оферты</h1>
+            {% if ads %}
+                <table class="table table-dark table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Тип</th>
+                        <th>Punkt początkowy</th>
+                        <th>Punkt docelowy</th>
+                        <th>Ilość osób</th>
+                        <th>Cena</th>
+                        <th>Шо там</th>
+                        <th>Действия</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for ad in ads %}
+                        <tr>
+                            <th scope="row" class="bg-primary">{{ forloop.counter }}</th>
+                            <td class="text-center">
+                                {% if ad.is_driver %}
+                                    <i class="fas fa-car"></i>
+                                {% elif ad.is_passenger %}
+                                    <i class="fas fa-user-friends"></i>
+                                {% endif %}
+                            </td>
+                            <td>{{ ad.departure_postcode }} {{ ad.departure_street }} {{ ad.departure_home }}</td>
+                            <td>{{ ad.arrival_postcode }} {{ ad.arrival_street }} {{ ad.arrival_home }}</td>
+                            <td class="text-right">{{ ad.seats }}</td>
+                            <td class="text-right">{{ ad.price }}</td>
+                            <td>
+                                {% if ad.current_status == 0 %}
+                                Пусто
+                                {% elif ad.current_status == -1 %}
+                                {{ ad.subscriber }} хочет ехать с Вами.
+                                {% elif ad.current_status == -2 %}
+                                {{ ad.subscriber }} едет с нами. Можем выезжать.
+                                {% elif ad.current_status == 1 %}
+                                Ожидаем подтверждения у {{ ad.author }}
+                                {% elif ad.current_status == 2 %}
+                                {{ ad.author }} подтвердил Ваш запрос
+                                {% elif ad.current_status == 3 %}
+                                {{ ad.author }} отказал Вам
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle"
+                                            type="button" id="ads-action-dd-toggler-{{ forloop.counter }}"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Actions
+                                    </button>
+                                    <div class="dropdown-menu"
+                                         aria-labelledby="ads-action-dd-toggler-{{ forloop.counter }}">
+                                        {% if ad.current_status == 0 and ad.author == request.user%}
+                                            <a class="dropdown-item" href="{% url 'update_ad' pk=ad.pk %}">
+                                                <i class="far fa-edit"></i>
+                                                <span>Edit</span>
+                                            </a>
+                                            <a class="dropdown-item text-danger" href="{% url 'delete_ad' pk=ad.pk %}">
+                                                <i class="far fa-trash"></i>
+                                                <span>Delete</span>
+                                            </a>
+                                        {% endif %}
+                                        {% if ad.current_status == -1 and ad.author == request.user%}
+                                            <a class="dropdown-item text-success" href="{% url 'confirm_subscribe' pk=ad.sub %}">
+                                                <i class="fas fa-check"></i>
+                                                <span>Confirm her/his</span>
+                                            </a>
+                                            <a class="dropdown-item text-danger" href="{% url 'reject_subscribe' pk=ad.sub %}">
+                                                <i class="fas fa-ban"></i>
+                                                <span>Reject her/his</span>
+                                            </a>
+                                        {% endif %}
+                                        {% if ad.current_status == 1 and ad.author != request.user %}
+                                            <a class="dropdown-item text-danger" href="{% url 'cancel_subscribe' pk=ad.sub %}">
+                                                <i class="fas fa-times"></i>
+                                                <span>Cancel reqest</span>
+                                            </a>
+                                        {% endif %}
+                                        {% if ad.author == request.user or ad.current_status == 2 %}
+                                            <a class="dropdown-item text-success" href="{% url 'complete_ad' pk=ad.pk %}">
+                                                <i class="fas fa-plane-arrival"></i>>
+                                                <span>Complete ad</span>
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p> Нема офертов!</p>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock %}

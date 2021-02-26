@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} {% endblock %}
+{% block content %}
+    {{ block.super }}
+    <div class="zmienInfo" style="margin-top: 50px">
+        <ul >
+            <li>
+                <a href="{% url 'create_driver_ad' %}">
+                    I Driver
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'create_passenger_ad' %}">
+                    I Passenger
+                </a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

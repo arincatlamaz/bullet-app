@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} {% endblock %}
+{% block content %}
+    {{ block.super }}
+
+    <div class="container-dodaj " id="dodaj">
+
+        <div class="form-container">
+            <h1>Драйвера оферта, однако...</h1>
+            <form action="{% if ad.pk %}{% url 'update_ad' pk=ad.pk %}{% else %}{% url 'create_driver_ad' %}{% endif %}" method="post">
+                {% csrf_token %}
+{#                <div style="display: flex">#}
+{#                    {% include "parts/form_field.html" with field=form.departure_postcode %}#}
+{#                    {% include "parts/form_field.html" with field=form.departure_street %}#}
+{#                    {% include "parts/form_field.html" with field=form.departure_home %}#}
+{#                </div>#}
+                {#                <div>#}
+                {#                {{ form.departure }}#}
+                {#                    </div>#}
+                {#                <div style="display: flex">#}
+                {#                    <label for="{{ form.departure_postcode.id_for_label }}">{{  form.departure_postcode.label }}</label>#}
+                {#                {{ form.departure_postcode }}#}
+                {#                {{ form.departure_street }}#}
+                {#                {{ form.departure_home }}#}
+                {#                    </div>#}
+
+                                {{ form.as_p }}
+                <div class="command-panel">
+                    <button class="btn" type="submit">Save</button>
+                    <button class="btn" type="button" onclick="history.back()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

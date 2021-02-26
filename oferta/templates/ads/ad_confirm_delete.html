@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} {% endblock %}
+{% block content %}
+    {{ block.super }}
+    <section class="listy">
+        <div class="form-container">
+            <h1>Вы действиетлно хотите удалить эту фигню?</h1>
+            <form method="post">
+                {% csrf_token %}
+                <button class="btn" type="submit" >Ja</button>
+                <button class="btn" type="button" onclick="history.back()">Нет</button>
+            </form>
+        </div>
+    </section>
+
+{% endblock %}

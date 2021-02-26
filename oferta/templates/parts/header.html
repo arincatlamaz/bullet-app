@@ -1,0 +1,34 @@
+{% load static %}
+
+<header id="header">
+    <a class="logo" href="#"><img alt="" src="{% static 'img/pula.PNG' %}"></a>
+    <ul class="hed-list">
+        <li>
+            <a href="{% url "about" %}" >Co to jest?</a>
+        </li>
+        <li>
+            <a href="{% url 'my-ads-list' %}">Obecne przejazdy</a>
+        </li>
+        <li>
+            <a href="{% url 'ads-list' %}">Oferty</a>
+        </li>
+        <li>
+            <a href="{% url 'choose_ad_type' %}">Dodaj ofertę</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li>
+            <a href="{% url 'profile' %}">Moje konto</a>
+        </li>
+        <li>
+            <a href="{% url 'logout' %}">Wylogowanie</a>
+        </li>
+        {% else %}
+{#        <li>#}
+{#            <a style="text-decoration:none" href="{% url 'registration' %}">Rejestracja</a>#}
+{#        </li>#}
+        <li>
+            <a style="text-decoration:none" href="{% url 'login' %}">Zaloguj sie</a>
+        </li>
+        {% endif %}
+    </ul>
+</header>

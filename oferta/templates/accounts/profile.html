@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} {% endblock %}
+{% block content %}
+    {{ block.super }}
+    <section class="account">
+        <div class="myAccount">
+            <h2 style="margin: 20px 0 40px;">Moje dane</h2>
+            <div class="my-icon"><i class="fas fa-user"></i></div>
+            <ul class="user-props">
+                <li>Username: {{ user.username }}</li>
+                <li>Email: {{ user.email|default:'не задан' }}</li>
+                <li>Phone number: {{ profile.phone_number|default:'не задан' }}</li>
+            </ul>
+            <div class="button-myAccount">
+                <a href="{% url 'change_user' %}" class="button">
+                    Zmien informacje
+                </a>
+                <button onclick="document.location='historia'" class="btn-m" style="margin-left: 5px;">Historia</button>
+            </div>
+        </div>
+    </section>
+{% endblock %}
