@@ -1,22 +1,16 @@
-
-1. Создать базу данных (например postgres)
-2. Прописать в файл /bullet/local_settings.py настройки БД. Пример файла:
-```
+Create database (for example postgres)
+Add database settings to the /bullet/local_settings.py file. Example file:
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bullet',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+     'default': {
+         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+         'NAME': 'bullet',
+         'USER': 'postgres',
+         'PASSWORD': 'postgres',
+         'HOST': '127.0.0.1',
+         'PORT': '5432',
+     }
 }
-```
-3. pip -r requirements.txt. Перед выполнением этой команды создать если необходимо virtual environment
-4. python manage.py migrate
-5. python manage.py createsuperuser
-6. python manage.py runserver
-
-
-
+pip -r requirements.txt. Before executing this command, create a virtual environment if necessary
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
