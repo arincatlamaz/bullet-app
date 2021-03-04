@@ -1,0 +1,44 @@
+{% load static %}
+
+<header id="stay">
+    <nav class="navbar navbar-expand-xl navbar-light fixed-top shadow">
+        <a class="navbar-brand" href="#"><img alt="" src="{% static 'img/pula.PNG' %}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end " id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'about' %}">Co to jest? </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'my-ads-list' %}">Obecne przejazdy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ads-list' %}">Oferty</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dodaj ofertę
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'create_driver_ad' %}">Ja kierowca</a>
+                        <a class="dropdown-item" href="{% url 'create_passenger_ad' %}">Ja pasazer</a>
+                    </div>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'profile' %}">Moje konto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Wylogowanie</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Zaloguj sie</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</header>

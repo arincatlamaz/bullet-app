@@ -1,0 +1,96 @@
+{% extends 'base.html' %} {% block title %} {% endblock %} {% block content %} {{ block.super }}
+<section class="listy">
+    <div class="form-container">
+        <h1>Oferty</h1>
+        <div class="wybor">
+            <form method="get" action="{% url 'ads-list' %}" class="form-inline w-100">
+                <input type="radio" id="kierowca" name="kind" value="1" {% if form.kind.value|default:'1'=='1' %}checked{% endif %} onchange="this.form.submit()">
+                <label for="kierowca"><b style="padding-right: 25px;">Jestem kierowcą</b></label>
+                <input type="radio" id="pasazer" name="kind" value="2" {% if form.kind.value|default:'1'=='2' %}checked{% endif %} onchange="this.form.submit()">
+                <label for="pasazer"><b>Jestem pasażerem</b></label>
+            </form>
+        </div>
+        {% if ads %}
+        <table class="table table-dark table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Marka</th>
+                    <th>Punkt początkowy</th>
+                    <th>Punkt docelowy</th>
+                    <th>Ilość osób</th>
+                    <th>Cena</th>
+                    <th>Dzałania</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ad in ads %}
+                <tr>
+                    <th scope="row" class="bg-primary">{{ forloop.counter }}</th>
+                    <td class="text-center">
+                        {{ ad.car_model }}
+                    </td>
+                    <td>{{ ad.departure_street }} {{ ad.departure_home }}, {{ ad.departure_postcode }}</td>
+                    <td>{{ ad.arrival_street }} {{ ad.arrival_home }}, {{ ad.arrival_postcode }}</td>
+                    <td class="text-right">{{ ad.seats }}</td>
+                    <td class="text-right">{{ ad.price }}</td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="ads-action-dd-toggler-{{ forloop.counter }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dzałania
+                                    </button>
+                            <div class="dropdown-menu" aria-labelledby="ads-action-dd-toggler-{{ forloop.counter }}">
+                                {% if ad.author == request.user %}
+                                <a class="dropdown-item" href="{% url 'update_ad' pk=ad.pk %}">
+                                    <i class="far fa-edit"></i>
+                                    <span>Zmień</span>
+                                </a>
+                                <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ ad.pk }}">
+                                    <i class="far fa-trash"></i>
+                                    <span>Usuń</span>
+                                </a>
+
+
+
+                                {% elif ad.is_driver %}
+                                <a class="dropdown-item" href="{% url 'subscribe_to_ad' pk=ad.pk %}">
+                                    <i class="far fa-handshake"></i>
+                                    <span>Zarezerwuj</span>
+                                </a>
+                                {% elif ad.is_passenger %}
+                                <a class="dropdown-item" href="{% url 'subscribe_to_ad' pk=ad.pk %}">
+                                    <i class="fas fa-user-check"></i>
+                                    <span>Zarezerwuj</span>
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <div class="modal fade" id="modal-delete-{{ ad.pk }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modal-delete-label-{{ ad.pk }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modal-delete-label-{{ ad.pk }}">Czy na pewno chcesz to usunąć?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-footer">
+                                <a class="btn" href="{% url 'delete_ad' pk=ad.pk %}" type="submit">Tak</a>
+                                <a class="btn close-modal" type="button" data-dismiss="modal">Nie</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>Brak oferty </p>
+        {% endif %}
+    </div>
+
+</section>
+
+{% endblock %}

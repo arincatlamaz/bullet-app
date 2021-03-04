@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block title %} {% endblock %} {% block content %} {{ block.super }}
+
+<div class="container-dodaj " id="dodaj">
+
+    <div class="form-container">
+        <h1>Formularz kierowcy</h1>
+        <form action="{% if ad.pk %}{% url 'update_ad' pk=ad.pk %}{% else %}{% url 'create_driver_ad' %}{% endif %}" method="post">
+            {% csrf_token %} {{ form.as_p }}
+            <div class="command-panel">
+                <button class="btn" type="submit">Zapisz</button>
+                <button class="btn" type="button" onclick="history.back()">Powrót</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

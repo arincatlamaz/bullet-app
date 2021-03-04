@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block title %} {% endblock %} {% block content %} {{ block.super }}
+<section class="listy">
+    <div class="form-container">
+        <h1>Czy na pewno chcesz to usunąć?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn" type="submit">Tak</button>
+            <button class="btn" type="button" onclick="history.back()">Nie</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

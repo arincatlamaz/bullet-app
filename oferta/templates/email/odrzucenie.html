@@ -1,0 +1,6 @@
+{% extends "email/baseemail.html" %} {% block content %}
+<p>Zarezerwowana oferta {% include "email/parts/addr.html" %}.</p>
+<p>Niestety użytkownik odmówił Ci w podróży. Zawsze możesz stworzyć swoją ofertę lub zapisać się na nową.</p>
+<p style="margin-bottom: 10px;">Pozdrawiam,</p>
+<p style="color: #e79f4d; margin-top: 10px; font-size: 30px;">Bullet</p>
+{{ block.super }} {% endblock %}
