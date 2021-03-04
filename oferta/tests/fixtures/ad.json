@@ -1,0 +1,23 @@
+[
+  {
+    "model": "oferta.ad",
+    "pk": 1,
+    "fields": {
+      "author": 1,
+      "kind": 1,
+      "created": "2021-02-22T14:39:52.493Z",
+      "departure": "2021-03-01T12:30:00",
+      "departure_postcode": "61709",
+      "departure_street": "aleja Niepodłeglośi ",
+      "departure_home": "36",
+      "arrival_postcode": "12453",
+      "arrival_street": "ul Dfrabr",
+      "arrival_home": "21",
+      "seats": 2,
+      "price": "3.99",
+      "car_model": "Toyota",
+      "comment": "No comments",
+      "completed": false
+    }
+  }
+]

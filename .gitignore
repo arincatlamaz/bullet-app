@@ -1,0 +1,8 @@
+/bullet/local_settings.py
+.idea
+
+/static/
+/tmp/*
+
+
+

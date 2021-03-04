@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+    <style type="text/css">
+        body {
+            width: 100%;
+            background-color: #F1F2F7;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            width: 100%;
+        }
+        
+        .email p {
+            font-size: 22px;
+        }
+        
+        .email span {
+            color: #28292b;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email">
+        {% block content %} {% endblock %}
+        <span>Ta wiadomość została wygenerowana automatycznie, prosimy na nią nie odpowiadać.</span>
+    </div>
+
+</body>
+
+</html>

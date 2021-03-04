@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {% block title %} {% endblock %} {% block content %} {{ block.super }}
+<section class="listy">
+    <div class="form-container">
+        <h1>Obecne przejazdy</h1>
+        {% if ads %}
+        <table class="table table-dark table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Marka</th>
+                    <th>Punkt początkowy</th>
+                    <th>Punkt docelowy</th>
+                    <th>Ilość osób</th>
+                    <th>Cena</th>
+                    <th>Status</th>
+                    <th>Dzałania</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for ad in ads %}
+                <tr>
+                    <th scope="row" class="bg-primary">{{ forloop.counter }}</th>
+                    <td class="text-center">
+                        {% if ad.is_driver %}
+                        <i class="fas fa-car"></i> {% elif ad.is_passenger %}
+                        <i class="fas fa-user-friends"></i> {% endif %}
+                    </td>
+                    <td>{{ ad.departure_street }} {{ ad.departure_home }} {{ ad.departure_postcode }}</td>
+                    <td>{{ ad.arrival_street }} {{ ad.arrival_home }} {{ ad.arrival_postcode }}</td>
+                    <td class="text-right">{{ ad.seats }}</td>
+                    <td class="text-right">{{ ad.price }}</td>
+                    <td>
+                        {% if ad.current_status == 0 %} Brak zarezerwowań {% elif ad.current_status == -1 %} {{ ad.subscriber }} chcę z tobą jechać. {% elif ad.current_status == -2 %} {{ ad.subscriber }} jedzie z tobą. Możemy jechać. {% elif ad.current_status == 1 %} Czekaj
+                        na potwierdzenie {{ ad.author }} {% elif ad.current_status == 2 %} {{ ad.author }} zgadza się {% elif ad.current_status == 3 %} {{ ad.author }} odmówił ci {% endif %}
+                    </td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="ads-action-dd-toggler-{{ forloop.counter }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dzałania
+                                    </button>
+                            <div class="dropdown-menu" aria-labelledby="ads-action-dd-toggler-{{ forloop.counter }}">
+                                {% if ad.current_status == 0 and ad.author == request.user%}
+                                <a class="dropdown-item" href="{% url 'update_ad' pk=ad.pk %}">
+                                    <i class="far fa-edit"></i>
+                                    <span>Zmień</span>
+                                </a>
+                                <a class="dropdown-item text-danger" href="{% url 'delete_ad' pk=ad.pk %}">
+                                    <i class="far fa-trash"></i>
+                                    <span>Usuń</span>
+                                </a>
+                                {% endif %} {% if ad.current_status == -1 and ad.author == request.user%}
+                                <a class="dropdown-item text-success" href="{% url 'confirm_subscribe' pk=ad.sub %}">
+                                    <i class="fas fa-check"></i>
+                                    <span>Zgadzam wziąć</span>
+                                </a>
+                                <a class="dropdown-item text-danger" href="{% url 'reject_subscribe' pk=ad.sub %}">
+                                    <i class="fas fa-ban"></i>
+                                    <span>Odrzucam</span>
+                                </a>
+                                {% endif %} {% if ad.current_status == 1 and ad.author != request.user %}
+                                <a class="dropdown-item text-danger" href="{% url 'cancel_subscribe' pk=ad.sub %}">
+                                    <i class="fas fa-times"></i>
+                                    <span>Anuluj zarezerwowanie</span>
+                                </a>
+                                {% endif %} {% if ad.author == request.user or ad.current_status == 2 %}
+                                <a class="dropdown-item text-success" href="{% url 'complete_ad' pk=ad.pk %}">
+                                    <i class="fas fa-plane-arrival"></i>>
+                                    <span>Zakończ pojazd</span>
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>Brak ofert</p>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

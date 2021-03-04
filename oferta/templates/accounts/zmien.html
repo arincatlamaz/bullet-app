@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} {% endblock %}
+{% block content %}
+<form method="post" >
+    {% csrf_token %}
+    <div class="zmienInfo">
+
+        <div class="zmien">
+            <h1>Zmień informację</h1>
+            {{ form.as_p }}
+{#            <label for="text"> <b>Nazwa użytkownika:</b> </label>#}
+{#            {{ form.username }}#}
+{#            <input type="text" id="text" name="name" required>#}
+{#            <label for="email"> <b>Email:</b> </label>#}
+{#            {{ form.email }}#}
+{#            <input type="email" id="email" name="email" required>#}
+{#            <label for="quantity"><b>Numer telefonu:</b></label>#}
+{#            <input type="number" id="quantity" name="quantity">#}
+
+            <button onclick="document.location='account'" type="submit" class="submit">Zapisz</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

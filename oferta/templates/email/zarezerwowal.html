@@ -1,0 +1,6 @@
+{% extends "email/baseemail.html" %} {% block content %}
+<p> Użytkownik {{ user }}, zarejezerwował ofertę {% include "email/parts/addr.html" %}. Zaloguj się na swoje konto, aby potwierdzić lub anulować podróż dla tego użytkownika. Jeśli chcesz napisać do użytkownika, wyślij wiadomość na adres e-mail: ({{user.email|default:"Użytkownik
+    nie zostawił swój email"}}).</p>
+<p style="margin-bottom: 10px;">Pozdrawiam,</p>
+<p style="font-size: 30px; color: #e79f4d; margin-top: 10px;">Bullet</p>
+{{ block.super }} {% endblock %}

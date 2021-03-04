@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block title %} {% endblock %} {% block content %}
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+
+    <div class="container-login " id="login">
+
+        <div class="information">
+            <h1> Zaloguj się</h1>
+            <label for="text"> <b>Nazwa użytkownika:</b> </label> {{ form.username }}
+            <label for="password"><b>Hasło:</b>  </label> {{ form.password }}
+
+            <button type="submit" class="submit">Zaloguj się</button>
+            <P> Nie masz konta? </P>
+            {% if form.errors %}
+            <br/>
+            <P> Prosze podać prawidlową nazwę uzytkownika oraz hasło</P>
+            {% endif %}
+            <a href="{% url 'password_reset' %}" class="btn cancelbtn">Nie pamiętasz hasło?</a>
+            <a href="{% url 'registration' %}" class="btn cancelbtn">Utwórz konto</a>
+        </div>
+    </div>
+</form>
+{% endblock %}

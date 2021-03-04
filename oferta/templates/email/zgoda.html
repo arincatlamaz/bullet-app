@@ -1,0 +1,6 @@
+{% extends "email/baseemail.html" %} {% block content %}
+<p>Zarezerwowana oferta {% include "email/parts/addr.html" %}.</p>
+<p>Użytkownik podtwierdzil się podróż. Jeżeli czcesz uzgodzić z nim pytania - możesz wysłać wiadomość na adres e-mail: {{ email|default:"Użytkownik nie zostawił swój email" }}.</p>
+<p style="margin-bottom: 10px;">Pozdrawiam,</p>
+<p style="font-size: 30px; color: #e79f4d; margin-top: 10px;">Bullet</p>
+{{ block.super }} {% endblock %}
