@@ -151,7 +151,7 @@ except ImportError:
 
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'infobullet3@gmail.com' # типо адекватный логин
-EMAIL_HOST_PASSWORD = 'Bullet3info' # типо адекватный пароль
+EMAIL_HOST_USER = 'infobullet3@gmail.com'
+EMAIL_HOST_PASSWORD = 'Bullet3info'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

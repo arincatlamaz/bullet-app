@@ -30,16 +30,12 @@ class TestLive(TestCase):
         }
         response = self.client.post(url, data=data)
         self.assertRedirects(response, reverse('ads-list'), fetch_redirect_response=False)
-
         self.assertEqual(Ad.objects.all().count(), 1)
-
         ad = Ad.objects.all().first()
-        
         self.assertEqual(ad.kind, Ad.DRIVER_KIND)
-      
         self.assertFalse(ad.completed)
 
-    def test_passenger_ad_driver(self):
+    def test_create_ad_passenger(self):
        #Sprawdzenie dodawania oferty jako pasazer
 
         self.client.force_login(get_user_model().objects.get(username='user1'))

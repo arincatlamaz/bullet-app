@@ -7,7 +7,7 @@ from os import path
 
 class TestLive(TestCase):
     fixtures = [
-        path.join('oferta', 'tests', 'fixtures','auth.json'),
+        path.join('oferta', 'tests', 'fixtures', 'auth.json'),
         path.join('oferta', 'tests', 'fixtures', 'ad.json'),
     ]
 
@@ -20,9 +20,7 @@ class TestLive(TestCase):
         url = reverse('subscribe_to_ad', kwargs={'pk': ad.pk})
         response = self.client.get(url)
         self.assertRedirects(response, reverse('ads-list'), fetch_redirect_response=False)
-
         sub = Subscription.objects.all().first()
-
         self.assertEqual(sub.ad, ad)
         self.assertEqual(sub.author, user2)
         self.assertEqual(sub.status, Subscription.INITIAL)
