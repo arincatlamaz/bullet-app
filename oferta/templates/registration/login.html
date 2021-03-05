@@ -13,9 +13,9 @@
             <P> Nie masz konta? </P>
             {% if form.errors %}
             <br/>
-            <P> Prosze podać prawidlową nazwę uzytkownika oraz hasło</P>
+            <P> Prosimy podać prawidłową nazwę użytkownika oraz hasła</P>
             {% endif %}
-            <a href="{% url 'password_reset' %}" class="btn cancelbtn">Nie pamiętasz hasło?</a>
+            <a href="{% url 'password_reset' %}" class="btn cancelbtn">Nie pamiętasz hasła?</a>
             <a href="{% url 'registration' %}" class="btn cancelbtn">Utwórz konto</a>
         </div>
     </div>

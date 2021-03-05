@@ -17,13 +17,13 @@ class Ad(models.Model):
         ), verbose_name='kind'
     )
     created = models.DateTimeField(verbose_name='created at', auto_now_add=True)
-    departure = models.DateTimeField(verbose_name='Data ta czas wyjazdu', null=False, blank=False)
+    departure = models.DateTimeField(verbose_name='Data i czas wyjazdu', null=False, blank=False)
 
-    departure_postcode = models.CharField(max_length=5, verbose_name='Kod pocztowy (Punkt początkowy)',)
+    departure_postcode = models.CharField(max_length=6, verbose_name='Kod pocztowy (Punkt początkowy)',)
     departure_street = models.CharField(max_length=500, verbose_name='Ulica (Punkt początkowy)',)
     departure_home = models.CharField(max_length=50, verbose_name='Numer domu (Punkt początkowy)',)
 
-    arrival_postcode = models.CharField(max_length=5, verbose_name='Kod pocztowy (Punkt docelowy)')
+    arrival_postcode = models.CharField(max_length=6, verbose_name='Kod pocztowy (Punkt docelowy)')
     arrival_street = models.CharField(max_length=500, verbose_name='Ulica (Punkt docelowy)')
     arrival_home = models.CharField(max_length=50, verbose_name='Numer domu (Punkt docelowy)')
 

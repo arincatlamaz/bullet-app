@@ -5,15 +5,15 @@
         <div class="my-icon"><i class="fas fa-user"></i></div>
         <ul class="user-props">
             <li>Nazwa użytkownika: {{ user.username }}</li>
-            <li>Email: {{ user.email|default:'brak informacji' }}</li>
+            <li>E-mail: {{ user.email|default:'brak informacji' }}</li>
             <li>Numer telefonu: {{ profile.phone_number|default:'brak informacji' }}</li>
         </ul>
         <div class="button-myAccount">
             <a href="{% url 'change_user' %}" class="btn btn-m ml-4">
-                    Zmien informacje
+                    Zmień informacje
                 </a>
             <a class="btn btn-m ml-4" href="{% url 'my-history-ads-list' %}">Historia</a>
-            <a class="btn btn-m ml-4" href="{% url 'password_change' %}">Zmien haslo</a>
+            <a class="btn btn-m ml-4" href="{% url 'password_change' %}">Zmień hasło</a>
         </div>
     </div>
 </section>

@@ -25,7 +25,8 @@ class AbstractDriverForm(ModelForm):
             'departure',
             'departure_postcode', 'departure_street', 'departure_home',
             'arrival_postcode', 'arrival_street', 'arrival_home',
-            'seats', 'price', 'comment',
+            'seats', 'price',
+            # 'comment',
         ]
         widgets = {
             'departure': DateTimeInput(attrs={
@@ -36,20 +37,21 @@ class AbstractDriverForm(ModelForm):
 
 class DriverAdForm(AbstractDriverForm):
     kind = Ad.DRIVER_KIND
-    seats = IntegerField(max_value=20, min_value=1, label='Seats', help_text='Pick up the number of free seats')
+    seats = IntegerField(max_value=20, min_value=1, label='Ilość miejsc')
 
     class Meta(AbstractDriverForm.Meta):
         fields = [
             'departure',
             'departure_postcode', 'departure_street', 'departure_home',
             'arrival_postcode', 'arrival_street', 'arrival_home',
-            'seats', 'price', 'car_model', 'comment',
+             'seats', 'price', 'car_model',
+            # 'comment',
         ]
 
 
 class PassengerAdForm(AbstractDriverForm):
     kind = Ad.PASSENGER_KIND
-    seats = IntegerField(max_value=20, min_value=1, label='Ile osób', help_text='Count of peoples')
+    seats = IntegerField(max_value=20, min_value=1, label='Ile osób?')
 
 
 class AdFilterForm(Form):
